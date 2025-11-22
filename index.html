@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduardo Schmegel | Data Scientist & ML Engineer</title>
+    <style>
+        /* General Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #2563eb; /* Blue-600 */
+            --primary-dark: #1e40af; /* Blue-800 */
+            --secondary: #10b981; /* Emerald-500 */
+            --dark: #1f2937; /* Gray-800 */
+            --darker: #111827; /* Gray-900 */
+            --light: #f9fafb; /* Gray-50 */
+            --gray: #6b7280; /* Gray-500 */
+            --border: #e5e7eb; /* Gray-200 */
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Smooth scrolling for navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            border-radius: 4px;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section - Banner Style */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #4364f7 0%, #6fb1fc 100%); 
+            color: white;
+            text-align: left; /* Aligned left for banner look */
+        }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        /* Profile Photo Styles - BANNER LOOK */
+        .profile-photo {
+            width: 160px; 
+            height: 160px;
+            border-radius: 12px; /* Professional, rounded corners */
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+        .hero-text {
+            flex-grow: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.25rem;
+            font-weight: 800;
+        }
+        .hero .subtitle {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: flex-start; /* Aligned left */
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 0.875rem 2.25rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            box-shadow: var(--card-shadow);
+        }
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.15);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 5rem;
+            padding-top: 5rem; 
+            margin-top: -5rem; 
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-size: 2.75rem;
+            margin-bottom: 0.5rem;
+            color: var(--darker);
+            font-weight: 700;
+        }
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        /* About Section */
+        .about-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: var(--card-shadow);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--dark);
+        }
+        .about-content p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .skill-card {
+            background: white;
+            padding: 1.75rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            box-shadow: var(--card-shadow);
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-color: var(--primary);
+        }
+        .skill-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-size: 1.35rem;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+        .tag {
+            background: var(--light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            color: var(--dark);
+            border: 1px solid var(--border);
+            font-weight: 500;
+        }
+        /* New class for important tags */
+        .tag.key-tag {
+            background: #eef2ff; /* Light Blue */
+            color: var(--primary-dark);
+            border: 1px solid var(--primary);
+            font-weight: 600;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .project-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.5rem;
+        }
+        .project-header h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.25rem;
+        }
+        .project-type {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        .project-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-body p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .tech-badge {
+            background: #eef2ff; /* Light Blue-50 */
+            padding: 0.3rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        /* New class for key feature emphasis */
+        .feature-highlight {
+            font-weight: 600; /* Use font-weight for inline emphasis */
+            color: var(--primary-dark);
+        }
+
+        .project-features {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+        .project-features li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.4rem;
+            color: var(--dark);
+        }
+        .project-features li::before {
+            content: '✅'; 
+            position: absolute;
+            left: 0;
+            font-size: 0.9rem;
+        }
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+        .project-link {
+            padding: 0.6rem 1.2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .project-link:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-left: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.3rem;
+            top: 0.5rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--light);
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+        .timeline-content {
+            background: white;
+            padding: 1.75rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: var(--card-shadow);
+        }
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+            font-size: 1.35rem;
+        }
+        .timeline-content .company {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+        }
+        .timeline-content .date {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .timeline-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .timeline-content li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+            color: var(--gray);
+        }
+        .timeline-content li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Education & Certifications */
+        #education .skill-card h3 {
+            font-size: 1.25rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--darker);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 6rem;
+                text-align: center;
+            }
+            .hero-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .hero-text {
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero .subtitle {
+                font-size: 1.5rem;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+            .section-header h2 {
+                font-size: 2.25rem;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .timeline {
+                padding-left: 1.5rem;
+            }
+            .timeline-item {
+                padding-left: 1.5rem;
+            }
+            .timeline-item::before {
+                left: -0.5rem;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Eduardo Schmegel</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Profile Image (Banner Look) -->
+            <img 
+                src="image.jpg" 
+                alt="Eduardo Schmegel Profile Photo" 
+                class="profile-photo"
+                onerror="this.onerror=null;this.src='https://placehold.co/160x160/4364f7/ffffff/png?text=Eduardo';"
+            >
+            <div class="hero-text">
+                <h1>Eduardo Schmegel</h1>
+                <p class="subtitle">Data Scientist & ML Engineer</p>
+                <!-- Removed inline bold -->
+                <p>Building AI-driven solutions with 3+ years of experience in automation, ML pipelines, and data analytics. Focusing on reproducible workflows and deploying production-ready models to solve real-world problems.</p>
+                <div class="hero-buttons">
+                    <a href="https://github.com/eduschm" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="View Eduardo Schmegel's GitHub profile">View GitHub</a>
+                    <a href="https://linkedin.com/in/eduardoschmegel" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="View Eduardo Schmegel's LinkedIn profile">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <div class="container">
+        <section id="about" class="section">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <p>Bridging business needs with technical data solutions</p>
+            </div>
+            <div class="about-content">
+                <!-- Removed inline bold and relied on professional phrasing -->
+                <p>I am a results-driven Data and BI professional with a strong background in Finance and over 3 years of experience at Dell Technologies. I excel in AI-driven automations, finance dashboards, and building innovative, reproducible data workflows that deliver measurable operational impact.</p>
+                <p>My core focus is delivering end-to-end BI and data solutions that drive business decisions, from ETL and data modeling to visualization and process optimization, while aspiring to fully transition into a Data Scientist or ML Engineer role.</p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="section-header">
+                <h2>Technical Toolkit</h2>
+                <p>Core competencies in Machine Learning, Data Engineering, and Automation</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Core ML & Statistics</h3>
+                    <div class="skill-tags">
+                        <span class="tag">scikit-learn</span>
+                        <span class="tag">XGBoost</span>
+                        <span class="tag">CatBoost</span>
+                        <span class="tag">LightGBM</span>
+                        <span class="tag">Feature Engineering</span>
+                        <span class="tag key-tag">RandomizedSearchCV</span> <!-- Using key-tag class -->
+                        <span class="tag key-tag">Cross-Validation</span> <!-- Using key-tag class -->
+                        <span class="tag">Statistical Modeling</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Data Engineering & BI</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">ETL/ELT</span>
+                        <span class="tag">Data Warehousing</span>
+                        <span class="tag">pandas</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag key-tag">seaborn/matplotlib</span> <!-- Using key-tag class -->
+                        <span class="tag key-tag">streamlit</span> <!-- Using key-tag class -->
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <!-- Renamed to focus on the artifacts and process, not specialization -->
+                    <h3>Workflow & Artifact Management</h3>
+                    <div class="skill-tags">
+                        <span class="tag">CI/CD (Basics)</span>
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">Docker (Basics)</span>
+                        <span class="tag">Unit Testing (Basics)</span>
+                        <span class="tag">skops</span>
+                        <span class="tag key-tag">Model Serialization</span> <!-- Using key-tag class -->
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Automation & RPA</h3>
+                    <div class="skill-tags">
+                        <span class="tag">RPA</span>
+                        <span class="tag">Power Automate</span>
+                        <span class="tag">Prompt Engineering</span>
+                        <span class="tag">AI Agents</span>
+                        <span class="tag key-tag">Glean AI Platform</span> <!-- Using key-tag class -->
+                        <span class="tag">Cloud (Basic)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>Applying production principles to advanced machine learning challenges</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Customer Churn Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Customer Churn Prediction</h3>
+                        <p class="project-type">End-to-End ML Pipeline</p>
+                    </div>
+                    <div class="project-body">
+                        <p>Complete ML pipeline for predicting customer churn with automated training, testing, and deployment. Features voting classifier ensemble and a CI/CD integration using GitHub Actions.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">XGBoost</span>
+                            <span class="tech-badge">LightGBM</span>
+                            <span class="tech-badge">SMOTE</span>
+                            <span class="tech-badge">GitHub Actions</span>
+                            <span class="tech-badge">skops</span>
+                        </div>
+                        <ul class="project-features">
+                            <!-- Using feature-highlight class for emphasis instead of <strong> -->
+                            <li>Voting classifier with optimized threshold (FPR <span class="feature-highlight">&lt; 0.1</span>)</li>
+                            <li><span class="feature-highlight">Automated CI/CD</span> artifact deployment</li>
+                            <li>Comprehensive <span class="feature-highlight">unit and integration testing</span></li>
+                            <li>Modular CLI for train/evaluate/test</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/eduschm/churn-prediction" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View Customer Churn Prediction Project Code on GitHub">View Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- House Prices Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>House Price Prediction</h3>
+                        <p class="project-type">Kaggle Competition | Top 15%</p>
+                    </div>
+                    <div class="project-body">
+                        <!-- Removed inline bold -->
+                        <p>Advanced regression pipeline with stacking ensemble achieving RMSE ~0.22. Features automated Kaggle API integration, two-phase training, and sophisticated feature engineering.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">XGBoost</span>
+                            <span class="tech-badge">LightGBM</span>
+                            <span class="tech-badge">CatBoost</span>
+                            <span class="tech-badge">Stacking</span>
+                            <span class="tech-badge">KNN Imputation</span>
+                        </div>
+                        <ul class="project-features">
+                            <li>Two-phase training: base models + stacking</li>
+                            <li>Automated data download via Kaggle API</li>
+                            <li>Advanced feature engineering pipeline</li>
+                            <li>Model blending for improved performance</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/eduschm/house-prices" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View House Price Prediction Project Code on GitHub">View Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Banking Fraud Detection -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Banking Fraud Detection</h3>
+                        <p class="project-type">Production ML System</p>
+                    </div>
+                    <div class="project-body">
+                        <!-- Used feature-highlight class for emphasis -->
+                        <p>High-precision fraud detection system optimized for <span class="feature-highlight">recall</span> to minimize false negatives. Implements <span class="feature-highlight">RandomizedSearchCV</span> with class imbalance handling and comprehensive evaluation metrics.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">XGBoost</span>
+                            <span class="tech-badge">Random Forest</span>
+                            <span class="tech-badge">Logistic Regression</span>
+                            <span class="tech-badge">SelectKBest</span>
+                        </div>
+                        <ul class="project-features">
+                            <!-- Used feature-highlight class for emphasis -->
+                            <li>Optimized for <span class="feature-highlight">recall</span> (fraud detection) and runtime (n_jobs=-1)</li>
+                            <li>Handles severe class imbalance (SMOTE)</li>
+                            <li>Hyperparameter tuning with 5-fold CV</li>
+                            <li>Modular CLI interface</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/eduschm/fraud-detection" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View Banking Fraud Detection Project Code on GitHub">View Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="section-header">
+                <h2>Professional Experience</h2>
+                <p>Delivering measurable impact through data-driven solutions at Dell Technologies</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Financial Analysis Senior Analyst</h3>
+                        <p class="company">Dell Technologies | LATAM Finance</p>
+                        <span class="date">Jul 2024 - Present</span>
+                        <ul>
+                            <!-- Used feature-highlight class for emphasis -->
+                            <li><span class="feature-highlight">AI BID Analyzer:</span> Built AI agent for Brazilian government editais analysis on the Glean platform, achieving <span class="feature-highlight">90% time reduction</span> with 100+ automated runs monthly.</li>
+                            <li><span class="feature-highlight">Finance Dashboards:</span> Designed multi-page Power BI dashboards; implemented ETL flows and automated refresh with Power Automate, streamlining <span class="feature-highlight">consolidated backlog visibility</span>.</li>
+                            <li><span class="feature-highlight">Automation Suite:</span> Created Power Automate workflows and RPA robots for complex report generation and document extraction, saving <span class="feature-highlight">500+ hours/year</span>.</li>
+                            <li><span class="feature-highlight">Key Technologies:</span> Glean AI Platform, Power BI, Power Automate Desktop, Python, SQL.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Sales Operations Analyst</h3>
+                        <p class="company">Dell Technologies | High & Key Accounts</p>
+                        <span class="date">Jun 2022 - Jul 2024</span>
+                        <ul>
+                            <!-- Used feature-highlight class for emphasis -->
+                            <li>Built Power BI dashboards integrated with <span class="feature-highlight">Salesforce</span> and Python ETL, automating reporting and significantly improving pipeline visibility for enterprise accounts.</li>
+                            <li>Managed complex quotation, proposal, and booking processes using <span class="feature-highlight">CRM tools</span> for Dell's top account managers, ensuring customer satisfaction.</li>
+                            <li>Fostered cross-departmental partnerships to streamline reporting processes and enhance stakeholder engagement through providing <span class="feature-highlight">real-time financial insights</span>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certifications -->
+        <section id="education" class="section">
+            <div class="section-header">
+                <h2>Education & Certifications</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>B.Sc. Economics</h3>
+                    <p style="color: var(--gray); margin-top: 0.5rem;">UFRGS | 2020 - 2024</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Data Scientist Associate</h3>
+                    <p style="color: var(--gray); margin-top: 0.5rem;">DataCamp</p>
+                </div>
+
+                </div>
+                <div class="skill-card">
+                    <h3>CS50P: Programming with Python</h3>
+                    <p style="color: var(--gray); margin-top: 0.5rem;">HarvardX</p>
+                </div>
+                <div class="skill-card">
+                    <!-- Removed inline bold -->
+                    <h3>Python Data Fundamentals</h3>
+                    <p style="color: var(--gray); margin-top: 0.5rem;">DataCamp</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="mailto:eschmegel@hotmail.com">Contact Me</a>
+            <a href="https://github.com/eduschm" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://linkedin.com/in/eduardoschmegel" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <p style="margin-top: 1.5rem; opacity: 0.8; font-size: 1.1rem;">Porto Alegre, Brazil</p>
+        <p style="opacity: 0.6; margin-top: 0.5rem; font-size: 0.85rem;">&copy; 2024 Eduardo Schmegel. All rights reserved.</p>
+    </footer>
+</body>
+</html>
