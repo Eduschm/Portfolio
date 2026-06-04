@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eduardo Schmegel | Data Scientist & ML Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* General Reset & Variables */
         * {
@@ -11,16 +14,69 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
         :root {
-            --primary: #2563eb; /* Blue-600 */
-            --primary-dark: #1e40af; /* Blue-800 */
-            --secondary: #10b981; /* Emerald-500 */
-            --dark: #1f2937; /* Gray-800 */
-            --darker: #111827; /* Gray-900 */
-            --light: #f9fafb; /* Gray-50 */
-            --gray: #6b7280; /* Gray-500 */
-            --border: #e5e7eb; /* Gray-200 */
+            /* Light Mode */
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #3b82f6;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --darker: #111827;
+            --light: #f9fafb;
+            --white: #ffffff;
+            --gray: #6b7280;
+            --gray-light: #9ca3af;
+            --border: #e5e7eb;
             --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --card-shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --hero-gradient: linear-gradient(135deg, #4364f7 0%, #6fb1fc 100%);
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --card-bg: #ffffff;
+            --text-primary: var(--dark);
+            --text-secondary: var(--gray);
+            --tag-bg: var(--light);
+            --tag-text: var(--dark);
+            --key-tag-bg: #eef2ff;
+            --key-tag-text: var(--primary-dark);
+            --tech-badge-bg: #eef2ff;
+            --tech-badge-text: var(--primary);
+            --project-header-gradient: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            --footer-bg: var(--darker);
+            --footer-text: var(--white);
+            --timeline-line: var(--primary);
+        }
+
+        [data-theme="dark"] {
+            /* Dark Mode */
+            --primary: #3b82f6;
+            --primary-dark: #60a5fa;
+            --primary-light: #2563eb;
+            --secondary: #34d399;
+            --dark: #f9fafb;
+            --darker: #1f2937;
+            --light: #111827;
+            --white: #1f2937;
+            --gray: #9ca3af;
+            --gray-light: #d1d5db;
+            --border: #374151;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --card-shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --hero-gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            --nav-bg: rgba(31, 41, 55, 0.95);
+            --card-bg: #1f2937;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --tag-bg: #374151;
+            --tag-text: #e5e7eb;
+            --key-tag-bg: #1e3a8a;
+            --key-tag-text: #60a5fa;
+            --tech-badge-bg: #1e3a8a;
+            --tech-badge-text: #60a5fa;
+            --project-header-gradient: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            --footer-bg: #111827;
+            --footer-text: #f9fafb;
+            --timeline-line: #3b82f6;
         }
         
         /* Smooth scrolling for navigation */
@@ -31,8 +87,9 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: var(--dark);
+            color: var(--text-primary);
             background: var(--light);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         /* Navigation */
@@ -40,11 +97,12 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--nav-bg);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
             padding: 1rem 0;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
         .nav-container {
             max-width: 1200px;
@@ -58,29 +116,87 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
+            transition: color 0.3s ease;
         }
         .nav-links {
             display: flex;
             gap: 2rem;
             list-style: none;
+            align-items: center;
         }
         .nav-links a {
-            color: var(--dark);
+            color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
             border-radius: 4px;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
         .nav-links a:hover {
             color: var(--primary);
         }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-        /* Hero Section - Banner Style */
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            background: transparent;
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+        }
+        .theme-toggle:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: rotate(15deg);
+        }
+        .theme-toggle:active {
+            transform: rotate(180deg);
+        }
+
+        /* Hero Section - Enhanced */
         .hero {
             padding: 8rem 2rem 4rem;
-            background: linear-gradient(135deg, #4364f7 0%, #6fb1fc 100%); 
+            background: var(--hero-gradient);
             color: white;
-            text-align: left; /* Aligned left for banner look */
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: heroFloat 20s ease-in-out infinite;
+        }
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
         }
         .hero-content {
             max-width: 1200px;
@@ -88,42 +204,62 @@
             display: flex;
             align-items: center;
             gap: 3rem;
+            position: relative;
+            z-index: 1;
         }
-        /* Profile Photo Styles - BANNER LOOK */
         .profile-photo {
-            width: 160px; 
-            height: 160px;
-            border-radius: 12px; /* Professional, rounded corners */
+            width: 180px;
+            height: 180px;
+            border-radius: 20px;
             object-fit: cover;
-            border: 5px solid white;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             flex-shrink: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .profile-photo:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
         }
         .hero-text {
             flex-grow: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 0.25rem;
             font-weight: 800;
+            letter-spacing: -0.02em;
         }
         .hero .subtitle {
             font-size: 1.75rem;
             margin-bottom: 1rem;
             opacity: 0.95;
             font-weight: 300;
+            letter-spacing: -0.01em;
         }
         .hero p {
             font-size: 1.1rem;
             max-width: 700px;
             margin-bottom: 2.5rem;
             opacity: 0.9;
+            line-height: 1.8;
         }
         .hero-buttons {
             display: flex;
-            gap: 1.5rem;
-            justify-content: flex-start; /* Aligned left */
+            gap: 1rem;
+            justify-content: flex-start;
             flex-wrap: wrap;
         }
         .btn {
@@ -131,9 +267,27 @@
             border-radius: 9999px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-block;
             box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+        .btn:active::before {
+            width: 300px;
+            height: 300px;
         }
         .btn-primary {
             background: white;
@@ -146,11 +300,14 @@
         .btn-secondary {
             background: transparent;
             color: white;
-            border: 2px solid white;
+            border: 2px solid rgba(255, 255, 255, 0.8);
         }
         .btn-secondary:hover {
             background: white;
             color: var(--primary);
+            border-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.15);
         }
 
         /* Container */
@@ -163,8 +320,15 @@
         /* Section */
         .section {
             margin-bottom: 5rem;
-            padding-top: 5rem; 
-            margin-top: -5rem; 
+            padding-top: 5rem;
+            margin-top: -5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .section-header {
             text-align: center;
@@ -173,31 +337,39 @@
         .section-header h2 {
             font-size: 2.75rem;
             margin-bottom: 0.5rem;
-            color: var(--darker);
+            color: var(--text-primary);
             font-weight: 700;
+            letter-spacing: -0.02em;
+            transition: color 0.3s ease;
         }
         .section-header p {
             font-size: 1.1rem;
-            color: var(--gray);
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
         }
 
         /* About Section */
         .about-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
             border: 1px solid var(--border);
             box-shadow: var(--card-shadow);
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
-            color: var(--dark);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .about-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
         }
         .about-content p {
             margin-bottom: 1rem;
             font-size: 1.05rem;
+            line-height: 1.8;
         }
-
 
         /* Skills Grid */
         .skills-grid {
@@ -206,22 +378,40 @@
             gap: 1.5rem;
         }
         .skill-card {
-            background: white;
-            padding: 1.75rem;
-            border-radius: 12px;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
             border: 1px solid var(--border);
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
         .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow-hover);
             border-color: var(--primary);
+        }
+        .skill-card:hover::before {
+            transform: scaleX(1);
         }
         .skill-card h3 {
             color: var(--primary-dark);
             margin-bottom: 1rem;
             font-size: 1.35rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
         .skill-tags {
             display: flex;
@@ -229,18 +419,24 @@
             gap: 0.6rem;
         }
         .tag {
-            background: var(--light);
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
+            background: var(--tag-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
             font-size: 0.875rem;
-            color: var(--dark);
+            color: var(--tag-text);
             border: 1px solid var(--border);
             font-weight: 500;
+            transition: all 0.3s ease;
         }
-        /* New class for important tags */
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
         .tag.key-tag {
-            background: #eef2ff; /* Light Blue */
-            color: var(--primary-dark);
+            background: var(--key-tag-bg);
+            color: var(--key-tag-text);
             border: 1px solid var(--primary);
             font-weight: 600;
         }
@@ -248,45 +444,68 @@
         /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 2rem;
         }
         .project-card {
-            background: white;
-            border-radius: 12px;
+            background: var(--card-bg);
+            border-radius: 16px;
             overflow: hidden;
             border: 1px solid var(--border);
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+            box-shadow: var(--card-shadow);
         }
         .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-12px);
+            box-shadow: var(--card-shadow-hover);
         }
         .project-header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: var(--project-header-gradient);
             color: white;
-            padding: 1.5rem;
+            padding: 1.75rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transition: transform 0.5s ease;
+        }
+        .project-card:hover .project-header::before {
+            transform: translate(-20%, -20%);
         }
         .project-header h3 {
             font-size: 1.6rem;
             margin-bottom: 0.25rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
         }
         .project-type {
             font-size: 0.95rem;
             opacity: 0.9;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
         }
         .project-body {
-            padding: 1.5rem;
+            padding: 1.75rem;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
         .project-body p {
-            color: var(--gray);
+            color: var(--text-secondary);
             margin-bottom: 1rem;
+            line-height: 1.7;
+            transition: color 0.3s ease;
         }
         .project-tech {
             display: flex;
@@ -295,20 +514,28 @@
             margin-bottom: 1rem;
         }
         .tech-badge {
-            background: #eef2ff; /* Light Blue-50 */
-            padding: 0.3rem 0.75rem;
+            background: var(--tech-badge-bg);
+            padding: 0.35rem 0.85rem;
             border-radius: 9999px;
             font-size: 0.75rem;
             font-weight: 600;
-            color: var(--primary);
+            color: var(--tech-badge-text);
             border: 1px solid var(--primary);
+            transition: all 0.3s ease;
         }
-        /* New class for key feature emphasis */
+        .tech-badge:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
         .feature-highlight {
-            font-weight: 600; /* Use font-weight for inline emphasis */
+            font-weight: 600;
             color: var(--primary-dark);
+            transition: color 0.3s ease;
         }
-
+        [data-theme="dark"] .feature-highlight {
+            color: var(--primary-light);
+        }
         .project-features {
             list-style: none;
             padding: 0;
@@ -317,35 +544,49 @@
         }
         .project-features li {
             position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.4rem;
-            color: var(--dark);
+            padding-left: 1.75rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
         }
         .project-features li::before {
-            content: '\2713';
+            content: '✓';
             position: absolute;
             left: 0;
             font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 700;
         }
         .project-links {
             display: flex;
             gap: 1rem;
             margin-top: auto;
-            padding-top: 1rem;
+            padding-top: 1.25rem;
         }
         .project-link {
-            padding: 0.6rem 1.2rem;
+            padding: 0.6rem 1.4rem;
             background: var(--primary);
             color: white;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 0.9rem;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .project-link::after {
+            content: '→';
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+            display: inline-block;
         }
         .project-link:hover {
             background: var(--primary-dark);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+        }
+        .project-link:hover::after {
+            transform: translateX(4px);
         }
 
         /* Experience Timeline */
@@ -362,65 +603,91 @@
             top: 0;
             bottom: 0;
             width: 3px;
-            background: var(--primary);
+            background: var(--timeline-line);
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
         }
         .timeline-item {
             position: relative;
             margin-bottom: 2.5rem;
             padding-left: 2rem;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -0.3rem;
+            left: -0.35rem;
             top: 0.5rem;
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
             background: var(--primary);
-            border: 3px solid var(--light);
-            box-shadow: 0 0 0 2px var(--primary);
+            border: 4px solid var(--light);
+            box-shadow: 0 0 0 3px var(--primary);
+            transition: all 0.3s ease;
+        }
+        .timeline-item:hover::before {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 4px var(--primary);
         }
         .timeline-content {
-            background: white;
-            padding: 1.75rem;
-            border-radius: 12px;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
             border: 1px solid var(--border);
             box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
         }
         .timeline-content h3 {
             color: var(--primary);
             margin-bottom: 0.25rem;
-            font-size: 1.35rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            transition: color 0.3s ease;
         }
         .timeline-content .company {
             font-weight: 600;
-            color: var(--dark);
+            color: var(--text-primary);
             margin-bottom: 0.25rem;
             font-size: 1.1rem;
+            transition: color 0.3s ease;
         }
         .timeline-content .date {
-            color: var(--gray);
+            color: var(--text-secondary);
             font-size: 0.95rem;
             margin-bottom: 1rem;
             display: block;
+            transition: color 0.3s ease;
         }
         .timeline-content ul {
             list-style: none;
             padding-left: 0;
         }
         .timeline-content li {
-            padding-left: 1.5rem;
+            padding-left: 1.75rem;
             position: relative;
             margin-bottom: 0.75rem;
-            color: var(--gray);
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
         }
         .timeline-content li::before {
-            content: '\203A';
+            content: '›';
             position: absolute;
             left: 0;
             color: var(--primary);
             font-weight: 700;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
         }
 
         /* Education & Certifications */
@@ -430,10 +697,11 @@
         
         /* Footer */
         footer {
-            background: var(--darker);
-            color: white;
+            background: var(--footer-bg);
+            color: var(--footer-text);
             padding: 3rem 2rem;
             text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .footer-links {
             display: flex;
@@ -443,13 +711,28 @@
             flex-wrap: wrap;
         }
         .footer-links a {
-            color: white;
+            color: var(--footer-text);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
             font-weight: 500;
+            position: relative;
+        }
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background: var(--secondary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
         .footer-links a:hover {
             color: var(--secondary);
+        }
+        .footer-links a:hover::after {
+            width: 100%;
         }
 
         /* Responsive */
@@ -460,7 +743,7 @@
             }
             .hero-content {
                 flex-direction: column;
-                gap: 1.5rem;
+                gap: 2rem;
             }
             .hero-text {
                 text-align: center;
@@ -473,6 +756,10 @@
             }
             .nav-links {
                 gap: 1rem;
+                font-size: 0.9rem;
+            }
+            .nav-links li:not(:last-child) {
+                display: none;
             }
             .section-header h2 {
                 font-size: 2.25rem;
@@ -487,11 +774,30 @@
                 padding-left: 1.5rem;
             }
             .timeline-item::before {
-                left: -0.5rem;
+                left: -0.55rem;
             }
             .hero-buttons {
                 justify-content: center;
             }
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
         }
     </style>
 </head>
@@ -505,6 +811,11 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        🌙
+                    </button>
+                </li>
             </ul>
         </div>
     </nav>
@@ -512,12 +823,11 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <!-- Profile Image (Banner Look) -->
             <img 
                 src="image.jpg" 
                 alt="Eduardo Schmegel Profile Photo" 
                 class="profile-photo"
-                onerror="this.onerror=null;this.src='https://placehold.co/160x160/4364f7/ffffff/png?text=Eduardo';"
+                onerror="this.onerror=null;this.src='https://placehold.co/180x180/4364f7/ffffff/png?text=Eduardo';"
             >
             <div class="hero-text">
                 <h1>Eduardo Schmegel</h1>
@@ -560,8 +870,8 @@
                         <span class="tag">CatBoost</span>
                         <span class="tag">LightGBM</span>
                         <span class="tag">Feature Engineering</span>
-                        <span class="tag key-tag">RandomizedSearchCV</span> <!-- Using key-tag class -->
-                        <span class="tag key-tag">Cross-Validation</span> <!-- Using key-tag class -->
+                        <span class="tag key-tag">RandomizedSearchCV</span>
+                        <span class="tag key-tag">Cross-Validation</span>
                         <span class="tag">Statistical Modeling</span>
                     </div>
                 </div>
@@ -574,14 +884,13 @@
                         <span class="tag">Data Warehousing</span>
                         <span class="tag">pandas</span>
                         <span class="tag">Power BI</span>
-                        <span class="tag key-tag">seaborn/matplotlib</span> <!-- Using key-tag class -->
-                        <span class="tag key-tag">streamlit</span> <!-- Using key-tag class -->
+                        <span class="tag key-tag">seaborn/matplotlib</span>
+                        <span class="tag key-tag">streamlit</span>
                         <span class="tag">FastAPI</span>
                         <span class="tag">Next.js</span>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <!-- Renamed to focus on the artifacts and process, not specialization -->
                     <h3>Workflow & Artifact Management</h3>
                     <div class="skill-tags">
                         <span class="tag">CI/CD (Basics)</span>
@@ -589,7 +898,7 @@
                         <span class="tag">Docker (Basics)</span>
                         <span class="tag">Unit Testing (Basics)</span>
                         <span class="tag">skops</span>
-                        <span class="tag key-tag">Model Serialization</span> <!-- Using key-tag class -->
+                        <span class="tag key-tag">Model Serialization</span>
                     </div>
                 </div>
                 <div class="skill-card">
@@ -599,7 +908,7 @@
                         <span class="tag">Power Automate</span>
                         <span class="tag">Prompt Engineering</span>
                         <span class="tag">AI Agents</span>
-                        <span class="tag key-tag">Glean AI Platform</span> <!-- Using key-tag class -->
+                        <span class="tag key-tag">Glean AI Platform</span>
                         <span class="tag">Claude API</span>
                         <span class="tag">Riot API</span>
                         <span class="tag">Cloud (Basic)</span>
@@ -657,7 +966,6 @@
                             <span class="tech-badge">skops</span>
                         </div>
                         <ul class="project-features">
-                            <!-- Using feature-highlight class for emphasis instead of <strong> -->
                             <li>Voting classifier with optimized threshold (FPR <span class="feature-highlight">&lt; 0.1</span>)</li>
                             <li><span class="feature-highlight">Automated CI/CD</span> artifact deployment</li>
                             <li>Comprehensive <span class="feature-highlight">unit and integration testing</span></li>
@@ -675,7 +983,6 @@
                         <p class="project-type">Kaggle Competition | Top 15%</p>
                     </div>
                     <div class="project-body">
-                        <!-- Removed inline bold -->
                         <p>Advanced regression pipeline with stacking ensemble achieving RMSE ~0.22. Features automated Kaggle API integration, two-phase training, and sophisticated feature engineering.</p>
                         <div class="project-tech">
                             <span class="tech-badge">XGBoost</span>
@@ -702,7 +1009,6 @@
                         <p class="project-type">Production ML System</p>
                     </div>
                     <div class="project-body">
-                        <!-- Used feature-highlight class for emphasis -->
                         <p>High-precision fraud detection system optimized for <span class="feature-highlight">recall</span> to minimize false negatives. Implements <span class="feature-highlight">RandomizedSearchCV</span> with class imbalance handling and comprehensive evaluation metrics.</p>
                         <div class="project-tech">
                             <span class="tech-badge">XGBoost</span>
@@ -711,7 +1017,6 @@
                             <span class="tech-badge">SelectKBest</span>
                         </div>
                         <ul class="project-features">
-                            <!-- Used feature-highlight class for emphasis -->
                             <li>Optimized for <span class="feature-highlight">recall</span> (fraud detection) and runtime (n_jobs=-1)</li>
                             <li>Handles severe class imbalance (SMOTE)</li>
                             <li>Hyperparameter tuning with 5-fold CV</li>
@@ -738,7 +1043,6 @@
                         <p class="company">Dell Technologies | LATAM Finance</p>
                         <span class="date">Jul 2024 - Present</span>
                         <ul>
-                            <!-- Used feature-highlight class for emphasis -->
                             <li><span class="feature-highlight">AI BID Analyzer:</span> Built AI agent for Brazilian government editais analysis on the Glean platform, achieving <span class="feature-highlight">90% time reduction</span> with 100+ automated runs monthly.</li>
                             <li><span class="feature-highlight">Finance Dashboards:</span> Designed multi-page Power BI dashboards; implemented ETL flows and automated refresh with Power Automate, streamlining <span class="feature-highlight">consolidated backlog visibility</span>.</li>
                             <li><span class="feature-highlight">Automation Suite:</span> Created Power Automate workflows and RPA robots for complex report generation and document extraction, saving <span class="feature-highlight">500+ hours/year</span>.</li>
@@ -752,7 +1056,6 @@
                         <p class="company">Dell Technologies | High & Key Accounts</p>
                         <span class="date">Jun 2022 - Jul 2024</span>
                         <ul>
-                            <!-- Used feature-highlight class for emphasis -->
                             <li>Built Power BI dashboards integrated with <span class="feature-highlight">Salesforce</span> and Python ETL, automating reporting and significantly improving pipeline visibility for enterprise accounts.</li>
                             <li>Managed complex quotation, proposal, and booking processes using <span class="feature-highlight">CRM tools</span> for Dell's top account managers, ensuring customer satisfaction.</li>
                             <li>Fostered cross-departmental partnerships to streamline reporting processes and enhance stakeholder engagement through providing <span class="feature-highlight">real-time financial insights</span>.</li>
@@ -770,20 +1073,19 @@
             <div class="skills-grid">
                 <div class="skill-card">
                     <h3>B.Sc. Economics</h3>
-                    <p style="color: var(--gray); margin-top: 0.5rem;">UFRGS | 2020 - 2024</p>
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">UFRGS | 2020 - 2024</p>
                 </div>
                 <div class="skill-card">
                     <h3>Data Scientist Associate</h3>
-                    <p style="color: var(--gray); margin-top: 0.5rem;">DataCamp</p>
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">DataCamp</p>
                 </div>
                 <div class="skill-card">
                     <h3>CS50P: Programming with Python</h3>
-                    <p style="color: var(--gray); margin-top: 0.5rem;">HarvardX</p>
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">HarvardX</p>
                 </div>
                 <div class="skill-card">
-                    <!-- Removed inline bold -->
                     <h3>Python Data Fundamentals</h3>
-                    <p style="color: var(--gray); margin-top: 0.5rem;">DataCamp</p>
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">DataCamp</p>
                 </div>
             </div>
         </section>
@@ -800,5 +1102,80 @@
         <p style="margin-top: 1.5rem; opacity: 0.8; font-size: 1.1rem;">Porto Alegre, Brazil</p>
         <p style="opacity: 0.6; margin-top: 0.5rem; font-size: 0.85rem;">&copy; 2024 Eduardo Schmegel. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference or default to light
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            
+            // Add rotation animation
+            themeToggle.style.transform = 'rotate(360deg)';
+            setTimeout(() => {
+                themeToggle.style.transform = '';
+            }, 300);
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Observe timeline items with staggered delay
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.2}s`;
+            observer.observe(item);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
