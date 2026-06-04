@@ -322,7 +322,7 @@
             color: var(--dark);
         }
         .project-features li::before {
-            content: '✅'; 
+            content: '\2713';
             position: absolute;
             left: 0;
             font-size: 0.9rem;
@@ -416,7 +416,7 @@
             color: var(--gray);
         }
         .timeline-content li::before {
-            content: '▹';
+            content: '\203A';
             position: absolute;
             left: 0;
             color: var(--primary);
@@ -521,12 +521,12 @@
             >
             <div class="hero-text">
                 <h1>Eduardo Schmegel</h1>
-                <p class="subtitle">Data Scientist & ML Engineer</p>
-                <!-- Removed inline bold -->
-                <p>Building AI-driven solutions with 3+ years of experience in automation, ML pipelines, and data analytics. Focusing on reproducible workflows and deploying production-ready models to solve real-world problems.</p>
+                <p class="subtitle">Data Scientist & AI Automation Engineer</p>
+                <p>Building AI-driven data products with 3+ years of experience across finance analytics, automation, BI, and machine learning. I turn business problems into reproducible workflows, decision dashboards, and production-minded ML systems.</p>
                 <div class="hero-buttons">
                     <a href="https://github.com/eduschm" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="View Eduardo Schmegel's GitHub profile">View GitHub</a>
                     <a href="https://linkedin.com/in/eduardoschmegel" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="View Eduardo Schmegel's LinkedIn profile">LinkedIn</a>
+                    <a href="Eduardo_Schmegel_EN_4.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="Download Eduardo Schmegel's CV">Download CV</a>
                 </div>
             </div>
         </div>
@@ -540,9 +540,8 @@
                 <p>Bridging business needs with technical data solutions</p>
             </div>
             <div class="about-content">
-                <!-- Removed inline bold and relied on professional phrasing -->
-                <p>I am a results-driven Data and BI professional with a strong background in Finance and over 3 years of experience at Dell Technologies. I excel in AI-driven automations, finance dashboards, and building innovative, reproducible data workflows that deliver measurable operational impact.</p>
-                <p>My core focus is delivering end-to-end BI and data solutions that drive business decisions, from ETL and data modeling to visualization and process optimization, while aspiring to fully transition into a Data Scientist or ML Engineer role.</p>
+                <p>I am a results-driven Data and BI professional with a finance background and over 3 years of experience at Dell Technologies. My work combines AI automation, Power BI, Python, SQL, and stakeholder-focused analytics to reduce manual effort and improve decision quality.</p>
+                <p>My current focus is the transition into Data Science and ML Engineering through end-to-end projects: from data ingestion and modeling to APIs, dashboards, testing, and user-facing products.</p>
             </div>
         </section>
 
@@ -577,6 +576,8 @@
                         <span class="tag">Power BI</span>
                         <span class="tag key-tag">seaborn/matplotlib</span> <!-- Using key-tag class -->
                         <span class="tag key-tag">streamlit</span> <!-- Using key-tag class -->
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">Next.js</span>
                     </div>
                 </div>
                 <div class="skill-card">
@@ -599,6 +600,8 @@
                         <span class="tag">Prompt Engineering</span>
                         <span class="tag">AI Agents</span>
                         <span class="tag key-tag">Glean AI Platform</span> <!-- Using key-tag class -->
+                        <span class="tag">Claude API</span>
+                        <span class="tag">Riot API</span>
                         <span class="tag">Cloud (Basic)</span>
                     </div>
                 </div>
@@ -609,9 +612,35 @@
         <section id="projects" class="section">
             <div class="section-header">
                 <h2>Featured Projects</h2>
-                <p>Applying production principles to advanced machine learning challenges</p>
+                <p>Applying production principles to machine learning, analytics, and AI product challenges</p>
             </div>
             <div class="projects-grid">
+                <!-- Valorant Aim Analyzer Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Valorant Aim Analyzer</h3>
+                        <p class="project-type">AI Coaching Product | FastAPI + Next.js</p>
+                    </div>
+                    <div class="project-body">
+                        <p>AI-powered Valorant coaching app that turns a Riot ID into a personalized performance report in under 30 seconds, combining ranked match stats with LLM-generated improvement guidance.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">FastAPI</span>
+                            <span class="tech-badge">Next.js 14</span>
+                            <span class="tech-badge">Riot API</span>
+                            <span class="tech-badge">Claude Haiku</span>
+                            <span class="tech-badge">YOLOv8</span>
+                        </div>
+                        <ul class="project-features">
+                            <li>Pulls recent ranked matches and extracts HS%, ADR, win rate, rank delta, top agent, and weapon trends</li>
+                            <li>Generates number-specific coaching reports through a dedicated LLM service</li>
+                            <li>Services-first architecture with shared contracts, pytest coverage, and a Next.js app router frontend</li>
+                            <li>Phase 2 computer vision pipeline for uploaded clips, mistake detection, and annotated video output</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/Eduschm/valorant-aim-analyzer" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View Valorant Aim Analyzer Project Code on GitHub">View Code</a>
+                        </div>
+                    </div>
+                </div>
                 <!-- Customer Churn Project -->
                 <div class="project-card">
                     <div class="project-header">
@@ -746,8 +775,6 @@
                 <div class="skill-card">
                     <h3>Data Scientist Associate</h3>
                     <p style="color: var(--gray); margin-top: 0.5rem;">DataCamp</p>
-                </div>
-
                 </div>
                 <div class="skill-card">
                     <h3>CS50P: Programming with Python</h3>
