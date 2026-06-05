@@ -1,1181 +1,1189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eduardo Schmegel | Data Scientist & ML Engineer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* General Reset & Variables */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            /* Light Mode */
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --primary-light: #3b82f6;
-            --secondary: #10b981;
-            --dark: #1f2937;
-            --darker: #111827;
-            --light: #f9fafb;
-            --white: #ffffff;
-            --gray: #6b7280;
-            --gray-light: #9ca3af;
-            --border: #e5e7eb;
-            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            --card-shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15);
-            --hero-gradient: linear-gradient(135deg, #4364f7 0%, #6fb1fc 100%);
-            --nav-bg: rgba(255, 255, 255, 0.95);
-            --card-bg: #ffffff;
-            --text-primary: var(--dark);
-            --text-secondary: var(--gray);
-            --tag-bg: var(--light);
-            --tag-text: var(--dark);
-            --key-tag-bg: #eef2ff;
-            --key-tag-text: var(--primary-dark);
-            --tech-badge-bg: #eef2ff;
-            --tech-badge-text: var(--primary);
-            --project-header-gradient: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            --footer-bg: var(--darker);
-            --footer-text: var(--white);
-            --timeline-line: var(--primary);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eduardo Schmegel | Analytics Engineer & AI Builder</title>
+  <meta name="description" content="Analytics Engineer at Dell Technologies. 4+ years building production AI agents, Power BI dashboards, and automation systems saving 1,500+ hours/year across LATAM." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        [data-theme="dark"] {
-            /* Dark Mode */
-            --primary: #3b82f6;
-            --primary-dark: #60a5fa;
-            --primary-light: #2563eb;
-            --secondary: #34d399;
-            --dark: #f9fafb;
-            --darker: #1f2937;
-            --light: #111827;
-            --white: #1f2937;
-            --gray: #9ca3af;
-            --gray-light: #d1d5db;
-            --border: #374151;
-            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            --card-shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.5);
-            --hero-gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            --nav-bg: rgba(31, 41, 55, 0.95);
-            --card-bg: #1f2937;
-            --text-primary: #f9fafb;
-            --text-secondary: #9ca3af;
-            --tag-bg: #374151;
-            --tag-text: #e5e7eb;
-            --key-tag-bg: #1e3a8a;
-            --key-tag-text: #60a5fa;
-            --tech-badge-bg: #1e3a8a;
-            --tech-badge-text: #60a5fa;
-            --project-header-gradient: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            --footer-bg: #111827;
-            --footer-text: #f9fafb;
-            --timeline-line: #3b82f6;
-        }
-        
-        /* Smooth scrolling for navigation */
-        html {
-            scroll-behavior: smooth;
-        }
+    :root {
+      --bg: #08080f;
+      --bg-2: #0d0d1a;
+      --bg-3: #111122;
+      --surface: rgba(255,255,255,0.035);
+      --surface-hover: rgba(255,255,255,0.065);
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(99,102,241,0.5);
+      --primary: #6366f1;
+      --primary-bright: #818cf8;
+      --primary-dim: rgba(99,102,241,0.15);
+      --secondary: #10b981;
+      --secondary-dim: rgba(16,185,129,0.15);
+      --valorant: #ff4655;
+      --valorant-dim: rgba(255,70,85,0.12);
+      --text: #f1f1f8;
+      --text-2: #9999bb;
+      --text-3: #55556a;
+      --mono: 'JetBrains Mono', monospace;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --shadow-lg: 0 16px 64px rgba(0,0,0,0.6);
+      --glow: 0 0 40px rgba(99,102,241,0.15);
+    }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--light);
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
+    html { scroll-behavior: smooth; }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--nav-bg);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            transition: color 0.3s ease;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-        .nav-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            border-radius: 4px;
-            position: relative;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 50%;
-            background: var(--primary);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        /* Dark Mode Toggle */
-        .theme-toggle {
-            background: transparent;
-            border: 2px solid var(--border);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            color: var(--text-primary);
-            font-size: 1.2rem;
-        }
-        .theme-toggle:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            transform: rotate(15deg);
-        }
-        .theme-toggle:active {
-            transform: rotate(180deg);
-        }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(99,102,241,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 110%, rgba(16,185,129,0.07) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        /* Hero Section - Enhanced */
-        .hero {
-            padding: 8rem 2rem 4rem;
-            background: var(--hero-gradient);
-            color: white;
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: heroFloat 20s ease-in-out infinite;
-        }
-        @keyframes heroFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            position: relative;
-            z-index: 1;
-        }
-        .profile-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 20px;
-            object-fit: cover;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            flex-shrink: 0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .profile-photo:hover {
-            transform: scale(1.05) rotate(2deg);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-        }
-        .hero-text {
-            flex-grow: 1;
-            animation: fadeInUp 0.8s ease-out;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 1rem 0;
+      background: rgba(8,8,15,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.3s;
+    }
+    nav.scrolled { padding: 0.6rem 0; }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo { font-weight: 700; font-size: 1rem; color: var(--text); letter-spacing: -0.02em; }
+    .nav-logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 0.25rem; list-style: none; align-items: center; }
+    .nav-links a {
+      padding: 0.45rem 0.9rem;
+      color: var(--text-2);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); background: var(--surface); }
+    .nav-cta {
+      padding: 0.45rem 1.1rem !important;
+      background: var(--primary) !important;
+      color: white !important;
+      border-radius: 6px !important;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { background: var(--primary-bright) !important; transform: translateY(-1px); }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.25rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-        }
-        .hero .subtitle {
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
-            opacity: 0.95;
-            font-weight: 300;
-            letter-spacing: -0.01em;
-        }
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            line-height: 1.8;
-        }
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-        }
-        .btn {
-            padding: 0.875rem 2.25rem;
-            border-radius: 9999px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-block;
-            box-shadow: var(--card-shadow);
-            position: relative;
-            overflow: hidden;
-        }
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
-        }
-        .btn:active::before {
-            width: 300px;
-            height: 300px;
-        }
-        .btn-primary {
-            background: white;
-            color: var(--primary);
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 14px 28px rgba(0,0,0,0.15);
-        }
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.8);
-        }
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-            border-color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 14px 28px rgba(0,0,0,0.15);
-        }
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 7rem 2rem 5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      background: var(--primary-dim);
+      border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--primary-bright);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--secondary);
+      box-shadow: 0 0 8px var(--secondary);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 .accent { color: var(--primary); }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--text-2);
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+    .hero-subtitle strong { color: var(--text); font-weight: 600; }
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
 
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-bright); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(99,102,241,0.35); }
+    .btn-ghost { background: var(--surface); color: var(--text-2); border: 1px solid var(--border); }
+    .btn-ghost:hover { color: var(--text); background: var(--surface-hover); transform: translateY(-2px); }
+    .btn-valorant { background: var(--valorant); color: white; }
+    .btn-valorant:hover { background: #ff6070; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,70,85,0.35); }
 
-        /* Section */
-        .section {
-            margin-bottom: 5rem;
-            padding-top: 5rem;
-            margin-top: -5rem;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .section-header h2 {
-            font-size: 2.75rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            transition: color 0.3s ease;
-        }
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            transition: color 0.3s ease;
-        }
+    .hero-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .hero-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+    .hero-stat .num {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      line-height: 1;
+    }
+    .hero-stat .label { font-size: 0.78rem; color: var(--text-3); font-weight: 500; }
+    .hero-divider { width: 1px; height: 36px; background: var(--border); align-self: center; }
 
-        /* About Section */
-        .about-content {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            box-shadow: var(--card-shadow);
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            color: var(--text-primary);
-            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .about-content:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--card-shadow-hover);
-        }
-        .about-content p {
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
+    .hero-photo-wrap { flex-shrink: 0; }
+    .hero-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg), var(--glow);
+      display: block;
+    }
+    .hero-photo-fallback {
+      width: 200px;
+      height: 200px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--primary-dim), var(--bg-3));
+      border: 1px solid var(--border);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
 
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .skill-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--card-shadow);
-            position: relative;
-            overflow: hidden;
-        }
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--primary);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-        .skill-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--card-shadow-hover);
-            border-color: var(--primary);
-        }
-        .skill-card:hover::before {
-            transform: scaleX(1);
-        }
-        .skill-card h3 {
-            color: var(--primary-dark);
-            margin-bottom: 1rem;
-            font-size: 1.35rem;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-        .tag {
-            background: var(--tag-bg);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-size: 0.875rem;
-            color: var(--tag-text);
-            border: 1px solid var(--border);
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .tag:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            transform: translateY(-2px);
-        }
-        .tag.key-tag {
-            background: var(--key-tag-bg);
-            color: var(--key-tag-text);
-            border: 1px solid var(--primary);
-            font-weight: 600;
-        }
+    /* SECTION */
+    .section { padding: 6rem 2rem; position: relative; z-index: 1; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .section-desc { font-size: 1rem; color: var(--text-2); max-width: 520px; margin-bottom: 3rem; }
 
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2rem;
-        }
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
-            box-shadow: var(--card-shadow);
-        }
-        .project-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--card-shadow-hover);
-        }
-        .project-header {
-            background: var(--project-header-gradient);
-            color: white;
-            padding: 1.75rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .project-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            transition: transform 0.5s ease;
-        }
-        .project-card:hover .project-header::before {
-            transform: translate(-20%, -20%);
-        }
-        .project-header h3 {
-            font-size: 1.6rem;
-            margin-bottom: 0.25rem;
-            font-weight: 700;
-            position: relative;
-            z-index: 1;
-        }
-        .project-type {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            font-weight: 500;
-            position: relative;
-            z-index: 1;
-        }
-        .project-body {
-            padding: 1.75rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .project-body p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            line-height: 1.7;
-            transition: color 0.3s ease;
-        }
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        .tech-badge {
-            background: var(--tech-badge-bg);
-            padding: 0.35rem 0.85rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--tech-badge-text);
-            border: 1px solid var(--primary);
-            transition: all 0.3s ease;
-        }
-        .tech-badge:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-        .feature-highlight {
-            font-weight: 600;
-            color: var(--primary-dark);
-            transition: color 0.3s ease;
-        }
-        [data-theme="dark"] .feature-highlight {
-            color: var(--primary-light);
-        }
-        .project-features {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-            font-size: 0.95rem;
-        }
-        .project-features li {
-            position: relative;
-            padding-left: 1.75rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-            transition: color 0.3s ease;
-        }
-        .project-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            font-size: 0.9rem;
-            color: var(--secondary);
-            font-weight: 700;
-        }
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: auto;
-            padding-top: 1.25rem;
-        }
-        .project-link {
-            padding: 0.6rem 1.4rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .project-link::after {
-            content: '→';
-            margin-left: 0.5rem;
-            transition: transform 0.3s ease;
-            display: inline-block;
-        }
-        .project-link:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-        .project-link:hover::after {
-            transform: translateX(4px);
-        }
+    /* IMPACT BAND */
+    .impact-section {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+    }
+    .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .impact-item {
+      padding: 3rem 2rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .impact-item:last-child { border-right: none; }
+    .impact-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--primary-dim);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .impact-item:hover::before { opacity: 1; }
+    .impact-num {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    .impact-num .accent { color: var(--primary); }
+    .impact-label { font-size: 0.85rem; color: var(--text-2); font-weight: 500; position: relative; }
 
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding-left: 2rem;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--timeline-line);
-            border-radius: 3px;
-            transition: background-color 0.3s ease;
-        }
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.5rem;
-            padding-left: 2rem;
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -0.35rem;
-            top: 0.5rem;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--primary);
-            border: 4px solid var(--light);
-            box-shadow: 0 0 0 3px var(--primary);
-            transition: all 0.3s ease;
-        }
-        .timeline-item:hover::before {
-            transform: scale(1.2);
-            box-shadow: 0 0 0 4px var(--primary);
-        }
-        .timeline-content {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-        }
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--card-shadow-hover);
-        }
-        .timeline-content h3 {
-            color: var(--primary);
-            margin-bottom: 0.25rem;
-            font-size: 1.4rem;
-            font-weight: 700;
-            transition: color 0.3s ease;
-        }
-        .timeline-content .company {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
-        }
-        .timeline-content .date {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            display: block;
-            transition: color 0.3s ease;
-        }
-        .timeline-content ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .timeline-content li {
-            padding-left: 1.75rem;
-            position: relative;
-            margin-bottom: 0.75rem;
-            color: var(--text-secondary);
-            transition: color 0.3s ease;
-        }
-        .timeline-content li::before {
-            content: '›';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+    .about-card:hover { border-color: var(--border-hover); background: var(--surface-hover); }
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--primary-dim);
+      border: 1px solid rgba(99,102,241,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .about-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .about-card p { font-size: 0.875rem; color: var(--text-2); line-height: 1.7; }
 
-        /* Education & Certifications */
-        #education .skill-card h3 {
-            font-size: 1.25rem;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--footer-bg);
-            color: var(--footer-text);
-            padding: 3rem 2rem;
-            text-align: center;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .footer-links a {
-            color: var(--footer-text);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-weight: 500;
-            position: relative;
-        }
-        .footer-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 50%;
-            background: var(--secondary);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-        .footer-links a:hover {
-            color: var(--secondary);
-        }
-        .footer-links a:hover::after {
-            width: 100%;
-        }
+    /* FEATURED PROJECT */
+    .featured-project {
+      background: var(--bg-2);
+      border: 1px solid rgba(255,70,85,0.2);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      margin-bottom: 2rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    .featured-project::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,70,85,0.04), transparent 60%);
+      pointer-events: none;
+    }
+    .featured-project:hover { border-color: rgba(255,70,85,0.45); box-shadow: 0 0 60px rgba(255,70,85,0.08); }
+    .featured-left { padding: 3rem; display: flex; flex-direction: column; }
+    .featured-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.8rem;
+      background: rgba(255,70,85,0.12);
+      border: 1px solid rgba(255,70,85,0.3);
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--valorant);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      width: fit-content;
+      margin-bottom: 1.5rem;
+    }
+    .featured-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.4rem; }
+    .featured-type { font-size: 0.85rem; color: var(--text-3); font-family: var(--mono); margin-bottom: 1.5rem; }
+    .featured-desc { font-size: 0.95rem; color: var(--text-2); line-height: 1.75; margin-bottom: 2rem; flex: 1; }
+    .featured-features { list-style: none; margin-bottom: 2rem; }
+    .featured-features li {
+      font-size: 0.875rem;
+      color: var(--text-2);
+      padding: 0.45rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.55;
+    }
+    .featured-features li:last-child { border-bottom: none; }
+    .featured-features li::before { content: '→'; position: absolute; left: 0; color: var(--valorant); font-weight: 700; }
+    .featured-features li strong { color: var(--text); }
+    .featured-tech { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+    .tech-pill {
+      padding: 0.3rem 0.8rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-2);
+      font-family: var(--mono);
+    }
+    .featured-right {
+      background: linear-gradient(135deg, #0d0a10, #1a0a0e);
+      border-left: 1px solid rgba(255,70,85,0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+      gap: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-right::before {
+      content: '';
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,70,85,0.12), transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .feat-stat { text-align: center; position: relative; z-index: 1; }
+    .feat-stat-num { font-size: 2.5rem; font-weight: 900; letter-spacing: -0.04em; color: var(--valorant); line-height: 1; margin-bottom: 0.4rem; }
+    .feat-stat-label { font-size: 0.78rem; color: var(--text-3); font-weight: 500; }
+    .feat-divider { width: 1px; height: 32px; background: rgba(255,70,85,0.2); }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                padding-top: 6rem;
-                text-align: center;
-            }
-            .hero-content {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            .hero-text {
-                text-align: center;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .hero .subtitle {
-                font-size: 1.5rem;
-            }
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-            .nav-links li:not(:last-child) {
-                display: none;
-            }
-            .section-header h2 {
-                font-size: 2.25rem;
-            }
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            .timeline {
-                padding-left: 1.5rem;
-            }
-            .timeline-item {
-                padding-left: 1.5rem;
-            }
-            .timeline-item::before {
-                left: -0.55rem;
-            }
-            .hero-buttons {
-                justify-content: center;
-            }
-            .profile-photo {
-                width: 150px;
-                height: 150px;
-            }
-        }
+    /* PROJECTS GRID */
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+    }
+    .project-card:hover { border-color: var(--border-hover); background: var(--surface-hover); transform: translateY(-4px); box-shadow: var(--shadow); }
+    .project-top { padding: 1.5rem 1.5rem 0; }
+    .project-type-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      font-family: var(--mono);
+    }
+    .project-card h3 { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .project-card p { font-size: 0.875rem; color: var(--text-2); line-height: 1.65; margin-bottom: 1.25rem; }
+    .project-highlights {
+      list-style: none;
+      padding: 0 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .project-highlights li {
+      font-size: 0.82rem;
+      color: var(--text-2);
+      padding: 0.5rem 0 0.5rem 1rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .project-highlights li:last-child { border-bottom: none; }
+    .project-highlights li::before { content: '✓'; position: absolute; left: 0; color: var(--secondary); font-size: 0.75rem; font-weight: 700; }
+    .project-foot { padding: 1.25rem 1.5rem; margin-top: auto; display: flex; flex-direction: column; gap: 1rem; }
+    .project-tech-row { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .mini-pill {
+      padding: 0.2rem 0.6rem;
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-3);
+      font-family: var(--mono);
+    }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .project-link:hover { color: var(--primary-bright); gap: 0.6rem; }
 
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--light);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-dark);
-        }
-    </style>
+    /* SKILLS */
+    .skills-tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .skill-tab {
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-2);
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .skill-tab.active, .skill-tab:hover {
+      background: var(--primary-dim);
+      border-color: rgba(99,102,241,0.4);
+      color: var(--primary-bright);
+    }
+    .skills-panel { display: none; }
+    .skills-panel.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+    .skill-group:hover { border-color: var(--border-hover); background: var(--surface-hover); }
+    .skill-group-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-family: var(--mono);
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-tag {
+      padding: 0.3rem 0.75rem;
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-2);
+      transition: all 0.2s;
+    }
+    .skill-tag:hover { border-color: var(--primary); color: var(--primary-bright); }
+    .skill-tag.key {
+      background: var(--primary-dim);
+      border-color: rgba(99,102,241,0.3);
+      color: var(--primary-bright);
+      font-weight: 600;
+    }
+
+    /* TIMELINE */
+    .timeline { position: relative; max-width: 780px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--primary), transparent);
+    }
+    .tl-item {
+      position: relative;
+      padding-left: 2.5rem;
+      padding-bottom: 3rem;
+      opacity: 0;
+      transform: translateX(-16px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+    .tl-item.visible { opacity: 1; transform: translateX(0); }
+    .tl-dot {
+      position: absolute;
+      left: -5px;
+      top: 7px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 12px rgba(99,102,241,0.6);
+    }
+    .tl-period { font-size: 0.75rem; font-weight: 600; color: var(--text-3); font-family: var(--mono); margin-bottom: 0.4rem; }
+    .tl-role { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.2rem; }
+    .tl-company { font-size: 0.9rem; font-weight: 500; color: var(--primary); margin-bottom: 1.25rem; }
+    .tl-bullets { list-style: none; }
+    .tl-bullets li {
+      font-size: 0.9rem;
+      color: var(--text-2);
+      padding: 0.45rem 0 0.45rem 1.25rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.6;
+    }
+    .tl-bullets li:last-child { border-bottom: none; }
+    .tl-bullets li::before { content: '›'; position: absolute; left: 0; color: var(--primary); font-weight: 700; font-size: 1.1rem; }
+    .tl-bullets li strong { color: var(--text); font-weight: 600; }
+
+    /* EDUCATION */
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+    .edu-card:hover { border-color: var(--border-hover); background: var(--surface-hover); }
+    .edu-card-icon { font-size: 1.4rem; margin-bottom: 0.75rem; }
+    .edu-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; line-height: 1.4; }
+    .edu-org { font-size: 0.8rem; color: var(--primary); font-weight: 600; margin-bottom: 0.2rem; }
+    .edu-year { font-size: 0.75rem; color: var(--text-3); font-family: var(--mono); }
+    .edu-note { font-size: 0.78rem; color: var(--secondary); font-weight: 600; margin-top: 0.5rem; }
+
+    /* CONTACT */
+    .contact-section { background: var(--bg-2); border-top: 1px solid var(--border); position: relative; z-index: 1; }
+    .contact-inner { max-width: 640px; margin: 0 auto; text-align: center; padding: 6rem 2rem; }
+    .contact-inner .section-label { display: block; text-align: center; }
+    .contact-inner .section-title { text-align: center; margin-bottom: 0.75rem; }
+    .contact-inner p { color: var(--text-2); font-size: 1rem; line-height: 1.7; margin-bottom: 2.5rem; }
+    .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2rem; text-align: center; position: relative; z-index: 1; }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.85rem; color: var(--text-3); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-2); }
+    .footer-copy { font-size: 0.8rem; color: var(--text-3); }
+
+    /* ANIMATIONS */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-photo-wrap { order: -1; }
+      .hero-photo, .hero-photo-fallback { width: 120px; height: 120px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .impact-grid { grid-template-columns: repeat(2, 1fr); }
+      .impact-item:nth-child(odd) { border-right: 1px solid var(--border); }
+      .impact-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .impact-item:nth-child(odd) { border-right: 1px solid var(--border); }
+      .impact-item:nth-last-child(-n+2):not(:nth-child(odd)) { border-bottom: none; }
+      .impact-item:last-child { border-bottom: none; }
+      .featured-project { grid-template-columns: 1fr; }
+      .featured-right { display: none; }
+      .projects-grid { grid-template-columns: 1fr; }
+      nav .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+    }
+    @media (max-width: 600px) {
+      .impact-grid { grid-template-columns: 1fr; }
+      .impact-item { border-right: none !important; }
+      .hero-stats { gap: 1rem; }
+      .hero-divider { display: none; }
+      .hero h1 { font-size: 2.5rem; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Eduardo Schmegel</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li>
-                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                        🌙
-                    </button>
-                </li>
-            </ul>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">Eduardo <span>Schmegel</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="Eduardo_Schmegel_EN_4.pdf" target="_blank" class="nav-cta">Download CV</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">Open to opportunities &middot; IELTS 8.0 &middot; Bilingual</div>
+      <h1>Analytics<br/>Engineer &amp;<br/><span class="accent">AI Builder</span></h1>
+      <p class="hero-subtitle">
+        4+ years at <strong>Dell Technologies</strong> deploying AI agents, BI dashboards, and automation systems at LATAM scale &mdash;
+        real production impact, not prototypes.
+      </p>
+      <div class="hero-links">
+        <a href="#projects" class="btn btn-primary">View Projects ↓</a>
+        <a href="https://github.com/Eduschm" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+        <a href="https://linkedin.com/in/eduardoschmegel" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num"><span id="c1">0</span>+</div>
+          <div class="label">Hours/year saved</div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <img 
-                src="image.jpg" 
-                alt="Eduardo Schmegel Profile Photo" 
-                class="profile-photo"
-                onerror="this.onerror=null;this.src='https://placehold.co/180x180/4364f7/ffffff/png?text=Eduardo';"
-            >
-            <div class="hero-text">
-                <h1>Eduardo Schmegel</h1>
-                <p class="subtitle">Data Scientist & AI Automation Engineer</p>
-                <p>Building AI-driven data products with 3+ years of experience across finance analytics, automation, BI, and machine learning. I turn business problems into reproducible workflows, decision dashboards, and production-minded ML systems.</p>
-                <div class="hero-buttons">
-                    <a href="https://github.com/eduschm" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="View Eduardo Schmegel's GitHub profile">View GitHub</a>
-                    <a href="https://linkedin.com/in/eduardoschmegel" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="View Eduardo Schmegel's LinkedIn profile">LinkedIn</a>
-                    <a href="Eduardo_Schmegel_EN_4.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="Download Eduardo Schmegel's CV">Download CV</a>
-                </div>
-            </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <div class="num"><span id="c2">0</span>+</div>
+          <div class="label">AI agents in production</div>
         </div>
-    </section>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <div class="num"><span id="c3">0</span>+</div>
+          <div class="label">Executions/month</div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <div class="num"><span id="c4">0</span></div>
+          <div class="label">Countries (BR &middot; MX &middot; AR)</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <img
+        src="image.jpg"
+        alt="Eduardo Schmegel"
+        class="hero-photo"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <div class="hero-photo-fallback">ES</div>
+    </div>
+  </div>
+</section>
 
-    <!-- About Section -->
-    <div class="container">
-        <section id="about" class="section">
-            <div class="section-header">
-                <h2>About Me</h2>
-                <p>Bridging business needs with technical data solutions</p>
-            </div>
-            <div class="about-content">
-                <p>I am a results-driven Data and BI professional with a finance background and over 3 years of experience at Dell Technologies. My work combines AI automation, Power BI, Python, SQL, and stakeholder-focused analytics to reduce manual effort and improve decision quality.</p>
-                <p>My current focus is the transition into Data Science and ML Engineering through end-to-end projects: from data ingestion and modeling to APIs, dashboards, testing, and user-facing products.</p>
-            </div>
-        </section>
+<!-- IMPACT BAND -->
+<div class="impact-section">
+  <div class="section-inner" style="padding: 0;">
+    <div class="impact-grid">
+      <div class="impact-item fade-up">
+        <div class="impact-num">1<span class="accent">,</span>500<span class="accent">+</span></div>
+        <div class="impact-label">Hours/year recovered from manual work</div>
+      </div>
+      <div class="impact-item fade-up" style="transition-delay:0.1s">
+        <div class="impact-num">500<span class="accent">+</span></div>
+        <div class="impact-label">Monthly executions on flagship AI agent</div>
+      </div>
+      <div class="impact-item fade-up" style="transition-delay:0.2s">
+        <div class="impact-num">10<span class="accent">+</span></div>
+        <div class="impact-label">Enterprise AI agents in daily use</div>
+      </div>
+      <div class="impact-item fade-up" style="transition-delay:0.3s">
+        <div class="impact-num">3</div>
+        <div class="impact-label">LATAM markets served</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <!-- Skills Section -->
-        <section id="skills" class="section">
-            <div class="section-header">
-                <h2>Technical Toolkit</h2>
-                <p>Core competencies in Machine Learning, Data Engineering, and Automation</p>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Core ML & Statistics</h3>
-                    <div class="skill-tags">
-                        <span class="tag">scikit-learn</span>
-                        <span class="tag">XGBoost</span>
-                        <span class="tag">CatBoost</span>
-                        <span class="tag">LightGBM</span>
-                        <span class="tag">Feature Engineering</span>
-                        <span class="tag key-tag">RandomizedSearchCV</span>
-                        <span class="tag key-tag">Cross-Validation</span>
-                        <span class="tag">Statistical Modeling</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <h3>Data Engineering & BI</h3>
-                    <div class="skill-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">ETL/ELT</span>
-                        <span class="tag">Data Warehousing</span>
-                        <span class="tag">pandas</span>
-                        <span class="tag">Power BI</span>
-                        <span class="tag key-tag">seaborn/matplotlib</span>
-                        <span class="tag key-tag">streamlit</span>
-                        <span class="tag">FastAPI</span>
-                        <span class="tag">Next.js</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <h3>Workflow & Artifact Management</h3>
-                    <div class="skill-tags">
-                        <span class="tag">CI/CD (Basics)</span>
-                        <span class="tag">GitHub Actions</span>
-                        <span class="tag">Docker (Basics)</span>
-                        <span class="tag">Unit Testing (Basics)</span>
-                        <span class="tag">skops</span>
-                        <span class="tag key-tag">Model Serialization</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <h3>Automation & RPA</h3>
-                    <div class="skill-tags">
-                        <span class="tag">RPA</span>
-                        <span class="tag">Power Automate</span>
-                        <span class="tag">Prompt Engineering</span>
-                        <span class="tag">AI Agents</span>
-                        <span class="tag key-tag">Glean AI Platform</span>
-                        <span class="tag">Claude API</span>
-                        <span class="tag">Riot API</span>
-                        <span class="tag">Cloud (Basic)</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="section-label">About</div>
+    <h2 class="section-title">Enterprise impact,<br/>production mindset.</h2>
+    <p class="section-desc">
+      Building data systems that actually run &mdash; from AI agents serving sales and finance teams across Latin America
+      to dashboards that drive million-dollar decisions.
+    </p>
+    <div class="about-grid fade-up">
+      <div class="about-card">
+        <div class="card-icon">🤖</div>
+        <h3>AI Agents in Production</h3>
+        <p>Designed and deployed 10+ enterprise AI agents on Glean serving sales and finance teams across Brazil, Mexico, and Argentina. Not demos &mdash; these run 500+ times a month and save real hours.</p>
+      </div>
+      <div class="about-card">
+        <div class="card-icon">📊</div>
+        <h3>BI &amp; Analytics at Scale</h3>
+        <p>Multi-page Power BI dashboards with Salesforce integration via Python ETL pipelines. Centralized backlog visibility for LATAM finance, supporting forecasting for multi-million dollar pipelines.</p>
+      </div>
+      <div class="about-card">
+        <div class="card-icon">⚡</div>
+        <h3>Automation &amp; RPA</h3>
+        <p>Power Automate flows and RPA robots for cross-database lookups, document extraction, and spreadsheet processing. 100+ hours saved per workflow, reduced manual errors across teams.</p>
+      </div>
+      <div class="about-card">
+        <div class="card-icon">🌎</div>
+        <h3>Bilingual &middot; LATAM Scope &middot; AI Graduate</h3>
+        <p>IELTS 8.0 (C1 English). Currently pursuing a Lato Sensu post-graduate degree in AI &amp; Big Data at ICMC/USP (2026&ndash;2027). Economics background from UFRGS (GPA 8.3/10).</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section">
-            <div class="section-header">
-                <h2>Featured Projects</h2>
-                <p>Applying production principles to machine learning, analytics, and AI product challenges</p>
-            </div>
-            <div class="projects-grid">
-                <!-- Valorant Aim Analyzer Project -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Valorant Aim Analyzer</h3>
-                        <p class="project-type">AI Coaching Product | FastAPI + Next.js</p>
-                    </div>
-                    <div class="project-body">
-                        <p>AI-powered Valorant coaching app that turns a Riot ID into a personalized performance report in under 30 seconds, combining ranked match stats with LLM-generated improvement guidance.</p>
-                        <div class="project-tech">
-                            <span class="tech-badge">FastAPI</span>
-                            <span class="tech-badge">Next.js 14</span>
-                            <span class="tech-badge">Riot API</span>
-                            <span class="tech-badge">Claude Haiku</span>
-                            <span class="tech-badge">YOLOv8</span>
-                        </div>
-                        <ul class="project-features">
-                            <li>Pulls recent ranked matches and extracts HS%, ADR, win rate, rank delta, top agent, and weapon trends</li>
-                            <li>Generates number-specific coaching reports through a dedicated LLM service</li>
-                            <li>Services-first architecture with shared contracts, pytest coverage, and a Next.js app router frontend</li>
-                            <li>Phase 2 computer vision pipeline for uploaded clips, mistake detection, and annotated video output</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/Eduschm/valorant-aim-analyzer" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View Valorant Aim Analyzer Project Code on GitHub">View Code</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Customer Churn Project -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Customer Churn Prediction</h3>
-                        <p class="project-type">End-to-End ML Pipeline</p>
-                    </div>
-                    <div class="project-body">
-                        <p>Complete ML pipeline for predicting customer churn with automated training, testing, and deployment. Features voting classifier ensemble and a CI/CD integration using GitHub Actions.</p>
-                        <div class="project-tech">
-                            <span class="tech-badge">XGBoost</span>
-                            <span class="tech-badge">LightGBM</span>
-                            <span class="tech-badge">SMOTE</span>
-                            <span class="tech-badge">GitHub Actions</span>
-                            <span class="tech-badge">skops</span>
-                        </div>
-                        <ul class="project-features">
-                            <li>Voting classifier with optimized threshold (FPR <span class="feature-highlight">&lt; 0.1</span>)</li>
-                            <li><span class="feature-highlight">Automated CI/CD</span> artifact deployment</li>
-                            <li>Comprehensive <span class="feature-highlight">unit and integration testing</span></li>
-                            <li>Modular CLI for train/evaluate/test</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/eduschm/churn-prediction" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View Customer Churn Prediction Project Code on GitHub">View Code</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- House Prices Project -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>House Price Prediction</h3>
-                        <p class="project-type">Kaggle Competition | Top 15%</p>
-                    </div>
-                    <div class="project-body">
-                        <p>Advanced regression pipeline with stacking ensemble achieving RMSE ~0.22. Features automated Kaggle API integration, two-phase training, and sophisticated feature engineering.</p>
-                        <div class="project-tech">
-                            <span class="tech-badge">XGBoost</span>
-                            <span class="tech-badge">LightGBM</span>
-                            <span class="tech-badge">CatBoost</span>
-                            <span class="tech-badge">Stacking</span>
-                            <span class="tech-badge">KNN Imputation</span>
-                        </div>
-                        <ul class="project-features">
-                            <li>Two-phase training: base models + stacking</li>
-                            <li>Automated data download via Kaggle API</li>
-                            <li>Advanced feature engineering pipeline</li>
-                            <li>Model blending for improved performance</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/eduschm/house-prices" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View House Price Prediction Project Code on GitHub">View Code</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Banking Fraud Detection -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Banking Fraud Detection</h3>
-                        <p class="project-type">Production ML System</p>
-                    </div>
-                    <div class="project-body">
-                        <p>High-precision fraud detection system optimized for <span class="feature-highlight">recall</span> to minimize false negatives. Implements <span class="feature-highlight">RandomizedSearchCV</span> with class imbalance handling and comprehensive evaluation metrics.</p>
-                        <div class="project-tech">
-                            <span class="tech-badge">XGBoost</span>
-                            <span class="tech-badge">Random Forest</span>
-                            <span class="tech-badge">Logistic Regression</span>
-                            <span class="tech-badge">SelectKBest</span>
-                        </div>
-                        <ul class="project-features">
-                            <li>Optimized for <span class="feature-highlight">recall</span> (fraud detection) and runtime (n_jobs=-1)</li>
-                            <li>Handles severe class imbalance (SMOTE)</li>
-                            <li>Hyperparameter tuning with 5-fold CV</li>
-                            <li>Modular CLI interface</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/eduschm/fraud-detection" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View Banking Fraud Detection Project Code on GitHub">View Code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- PROJECTS -->
+<section class="section" id="projects" style="background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-inner">
+    <div class="section-label">Projects</div>
+    <h2 class="section-title">What I&rsquo;ve built.</h2>
+    <p class="section-desc">Personal projects built with the same production standards I apply at Dell.</p>
 
-        <!-- Experience Section -->
-        <section id="experience" class="section">
-            <div class="section-header">
-                <h2>Professional Experience</h2>
-                <p>Delivering measurable impact through data-driven solutions at Dell Technologies</p>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Financial Analysis Senior Analyst</h3>
-                        <p class="company">Dell Technologies | LATAM Finance</p>
-                        <span class="date">Jul 2024 - Present</span>
-                        <ul>
-                            <li><span class="feature-highlight">AI BID Analyzer:</span> Built AI agent for Brazilian government editais analysis on the Glean platform, achieving <span class="feature-highlight">90% time reduction</span> with 100+ automated runs monthly.</li>
-                            <li><span class="feature-highlight">Finance Dashboards:</span> Designed multi-page Power BI dashboards; implemented ETL flows and automated refresh with Power Automate, streamlining <span class="feature-highlight">consolidated backlog visibility</span>.</li>
-                            <li><span class="feature-highlight">Automation Suite:</span> Created Power Automate workflows and RPA robots for complex report generation and document extraction, saving <span class="feature-highlight">500+ hours/year</span>.</li>
-                            <li><span class="feature-highlight">Key Technologies:</span> Glean AI Platform, Power BI, Power Automate Desktop, Python, SQL.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Sales Operations Analyst</h3>
-                        <p class="company">Dell Technologies | High & Key Accounts</p>
-                        <span class="date">Jun 2022 - Jul 2024</span>
-                        <ul>
-                            <li>Built Power BI dashboards integrated with <span class="feature-highlight">Salesforce</span> and Python ETL, automating reporting and significantly improving pipeline visibility for enterprise accounts.</li>
-                            <li>Managed complex quotation, proposal, and booking processes using <span class="feature-highlight">CRM tools</span> for Dell's top account managers, ensuring customer satisfaction.</li>
-                            <li>Fostered cross-departmental partnerships to streamline reporting processes and enhance stakeholder engagement through providing <span class="feature-highlight">real-time financial insights</span>.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education & Certifications -->
-        <section id="education" class="section">
-            <div class="section-header">
-                <h2>Education & Certifications</h2>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>B.Sc. Economics</h3>
-                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">UFRGS | 2020 - 2024</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Data Scientist Associate</h3>
-                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">DataCamp</p>
-                </div>
-                <div class="skill-card">
-                    <h3>CS50P: Programming with Python</h3>
-                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">HarvardX</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Python Data Fundamentals</h3>
-                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">DataCamp</p>
-                </div>
-            </div>
-        </section>
+    <!-- Featured: Valorant -->
+    <div class="featured-project fade-up">
+      <div class="featured-left">
+        <div class="featured-badge">&#9733; Featured Project</div>
+        <div class="featured-title">Valorant Aim Analyzer</div>
+        <div class="featured-type">// AI Coaching Product &middot; FastAPI + Next.js + Claude</div>
+        <p class="featured-desc">
+          AI-powered Valorant coaching app that turns a Riot ID into a personalized performance report in under 30 seconds.
+          Pulls live ranked match data, computes key metrics (HS%, ADR, win rate, rank delta), and generates
+          number-specific coaching through a dedicated LLM service. Services-first architecture with shared contracts and pytest coverage.
+        </p>
+        <ul class="featured-features">
+          <li>Pulls recent ranked matches &mdash; HS%, ADR, win rate, rank delta, agent &amp; weapon trends</li>
+          <li><strong>LLM coaching layer</strong> via Claude Haiku: number-specific, actionable improvement reports</li>
+          <li>Services-first architecture with shared contracts and pytest test coverage</li>
+          <li>Next.js 14 app router frontend &mdash; fast, clean, production-grade</li>
+          <li><strong>Phase 2:</strong> computer vision pipeline (YOLOv8) for clip analysis and mistake detection</li>
+        </ul>
+        <div class="featured-tech">
+          <span class="tech-pill">FastAPI</span>
+          <span class="tech-pill">Next.js 14</span>
+          <span class="tech-pill">Claude Haiku</span>
+          <span class="tech-pill">Riot API</span>
+          <span class="tech-pill">YOLOv8</span>
+          <span class="tech-pill">pytest</span>
+          <span class="tech-pill">TypeScript</span>
+        </div>
+        <div>
+          <a href="https://github.com/Eduschm/valorant-aim-analyzer" target="_blank" rel="noopener" class="btn btn-valorant">View Code &rarr;</a>
+        </div>
+      </div>
+      <div class="featured-right">
+        <div class="feat-stat">
+          <div class="feat-stat-num">&lt; 30s</div>
+          <div class="feat-stat-label">Full report generation</div>
+        </div>
+        <div class="feat-divider"></div>
+        <div class="feat-stat">
+          <div class="feat-stat-num">AI</div>
+          <div class="feat-stat-label">LLM-powered coaching</div>
+        </div>
+        <div class="feat-divider"></div>
+        <div class="feat-stat">
+          <div class="feat-stat-num">CV</div>
+          <div class="feat-stat-label">Computer vision Phase 2</div>
+        </div>
+      </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-links">
-            <a href="#about">About</a>
-            <a href="mailto:eschmegel@hotmail.com">Contact Me</a>
-            <a href="https://github.com/eduschm" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://linkedin.com/in/eduardoschmegel" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <!-- Other projects -->
+    <div class="projects-grid fade-up">
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-type-tag">// End-to-End ML Pipeline</div>
+          <h3>Customer Churn Prediction</h3>
+          <p>Complete ML pipeline with automated training, testing, and CI/CD deployment. Voting classifier ensemble with threshold tuned for business-grade precision.</p>
         </div>
-        <p style="margin-top: 1.5rem; opacity: 0.8; font-size: 1.1rem;">Porto Alegre, Brazil</p>
-        <p style="opacity: 0.6; margin-top: 0.5rem; font-size: 0.85rem;">&copy; 2024 Eduardo Schmegel. All rights reserved.</p>
-    </footer>
+        <ul class="project-highlights">
+          <li>Voting classifier &middot; FPR &lt; 0.1 threshold</li>
+          <li>Automated CI/CD via GitHub Actions</li>
+          <li>Unit + integration test coverage</li>
+          <li>Modular CLI: train / evaluate / test</li>
+        </ul>
+        <div class="project-foot">
+          <div class="project-tech-row">
+            <span class="mini-pill">XGBoost</span>
+            <span class="mini-pill">LightGBM</span>
+            <span class="mini-pill">SMOTE</span>
+            <span class="mini-pill">skops</span>
+            <span class="mini-pill">GH Actions</span>
+          </div>
+          <a href="https://github.com/eduschm/churn-prediction" target="_blank" rel="noopener" class="project-link">View Code &rarr;</a>
+        </div>
+      </div>
 
-    <script>
-        // Dark Mode Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const html = document.documentElement;
-        
-        // Check for saved theme preference or default to light
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-theme', savedTheme);
-        themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-type-tag">// Kaggle Competition &middot; Top 15%</div>
+          <h3>House Price Prediction</h3>
+          <p>Advanced regression pipeline achieving RMSE &sim;0.22 via stacking ensemble. Two-phase training, automated Kaggle API integration, and sophisticated feature engineering.</p>
+        </div>
+        <ul class="project-highlights">
+          <li>Stacking: base models + meta-learner</li>
+          <li>Automated data download via Kaggle API</li>
+          <li>Advanced feature engineering pipeline</li>
+          <li>KNN imputation + model blending</li>
+        </ul>
+        <div class="project-foot">
+          <div class="project-tech-row">
+            <span class="mini-pill">XGBoost</span>
+            <span class="mini-pill">LightGBM</span>
+            <span class="mini-pill">CatBoost</span>
+            <span class="mini-pill">Stacking</span>
+          </div>
+          <a href="https://github.com/eduschm/house-prices" target="_blank" rel="noopener" class="project-link">View Code &rarr;</a>
+        </div>
+      </div>
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            
-            // Add rotation animation
-            themeToggle.style.transform = 'rotate(360deg)';
-            setTimeout(() => {
-                themeToggle.style.transform = '';
-            }, 300);
-        });
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-type-tag">// Production ML System</div>
+          <h3>Banking Fraud Detection</h3>
+          <p>High-precision fraud detection optimized for recall to minimize false negatives. RandomizedSearchCV hyperparameter tuning with severe class imbalance handling.</p>
+        </div>
+        <ul class="project-highlights">
+          <li>Recall-optimized &middot; n_jobs=-1 parallelism</li>
+          <li>SMOTE for severe class imbalance</li>
+          <li>5-fold cross-validation + SelectKBest</li>
+          <li>Modular CLI interface</li>
+        </ul>
+        <div class="project-foot">
+          <div class="project-tech-row">
+            <span class="mini-pill">XGBoost</span>
+            <span class="mini-pill">Random Forest</span>
+            <span class="mini-pill">Logistic Reg.</span>
+            <span class="mini-pill">SMOTE</span>
+          </div>
+          <a href="https://github.com/eduschm/fraud-detection" target="_blank" rel="noopener" class="project-link">View Code &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-inner">
+    <div class="section-label">Skills</div>
+    <h2 class="section-title">Technical toolkit.</h2>
+    <p class="section-desc">Production-proven at Dell, extended through personal projects.</p>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+    <div class="skills-tabs">
+      <button class="skill-tab active" data-panel="enterprise">Enterprise &amp; Production</button>
+      <button class="skill-tab" data-panel="ml">ML &amp; Data Science</button>
+      <button class="skill-tab" data-panel="dev">Dev &amp; DevOps</button>
+    </div>
 
-        // Observe sections
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
+    <div id="panel-enterprise" class="skills-panel active">
+      <div class="skill-group">
+        <div class="skill-group-title">// BI &amp; Analytics</div>
+        <div class="skill-tags">
+          <span class="skill-tag key">Power BI</span>
+          <span class="skill-tag key">DAX</span>
+          <span class="skill-tag">Salesforce Integration</span>
+          <span class="skill-tag">KPIs &amp; Dashboards</span>
+          <span class="skill-tag">Multi-page Reporting</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">// Automation &amp; RPA</div>
+        <div class="skill-tags">
+          <span class="skill-tag key">Power Automate</span>
+          <span class="skill-tag key">Power Automate Desktop</span>
+          <span class="skill-tag">RPA Workflows</span>
+          <span class="skill-tag">Document Extraction</span>
+          <span class="skill-tag">Scheduled Automation</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">// AI Agents (Production)</div>
+        <div class="skill-tags">
+          <span class="skill-tag key">Glean AI Platform</span>
+          <span class="skill-tag key">Prompt Engineering</span>
+          <span class="skill-tag">LLMs in Production</span>
+          <span class="skill-tag">Claude API</span>
+          <span class="skill-tag">Agent Orchestration</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">// Data &amp; ETL</div>
+        <div class="skill-tags">
+          <span class="skill-tag key">Python</span>
+          <span class="skill-tag key">SQL</span>
+          <span class="skill-tag">ETL Pipelines</span>
+          <span class="skill-tag">pandas</span>
+          <span class="skill-tag">NumPy</span>
+        </div>
+      </div>
+    </div>
 
-        // Observe timeline items with staggered delay
-        document.querySelectorAll('.timeline-item').forEach((item, index) => {
-            item.style.transitionDelay = `${index * 0.2}s`;
-            observer.observe(item);
-        });
+    <div id="panel-ml" class="skills-panel">
+      <div class="skill-group">
+        <div class="skill-group-title">// Gradient Boosting</div>
+        <div class="skill-tags">
+          <span class="skill-tag key">XGBoost</span>
+          <span class="skill-tag key">LightGBM</span>
+          <span class="skill-tag">CatBoost</span>
+          <span class="skill-tag">Stacking Ensembles</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">// ML Engineering</div>
+        <div class="skill-tags">
+          <span class="skill-tag key">scikit-learn</span>
+          <span class="skill-tag">Feature Engineering</span>
+          <span class="skill-tag">RandomizedSearchCV</span>
+          <span class="skill-tag">Cross-Validation</span>
+          <span class="skill-tag">SMOTE</span>
+          <span class="skill-tag">Model Serialization</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">// Computer Vision</div>
+        <div class="skill-tags">
+          <span class="skill-tag">YOLOv8</span>
+          <span class="skill-tag">Object Detection</span>
+          <span class="skill-tag">Video Annotation</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">// Visualization</div>
+        <div class="skill-tags">
+          <span class="skill-tag">seaborn</span>
+          <span class="skill-tag">matplotlib</span>
+          <span class="skill-tag">Streamlit</span>
+        </div>
+      </div>
+    </div>
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <div id="panel-dev" class="skills-panel">
+      <div class="skill-group">
+        <div class="skill-group-title">// Backend &amp; APIs</div>
+        <div class="skill-tags">
+          <span class="skill-tag key">FastAPI</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Riot API</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">// Frontend</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Next.js 14</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">App Router</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">// DevOps &amp; Tooling</div>
+        <div class="skill-tags">
+          <span class="skill-tag key">Git &amp; GitHub</span>
+          <span class="skill-tag">GitHub Actions (CI/CD)</span>
+          <span class="skill-tag">Docker (basics)</span>
+          <span class="skill-tag">Makefile</span>
+          <span class="skill-tag">pytest</span>
+          <span class="skill-tag">CLI Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Navbar background on scroll
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                nav.style.boxShadow = 'none';
-            }
-        });
-    </script>
+<!-- EXPERIENCE -->
+<section class="section" id="experience" style="background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-inner">
+    <div class="section-label">Experience</div>
+    <h2 class="section-title">4+ years at Dell,<br/>LATAM scope.</h2>
+    <p class="section-desc">From sales intern to analytics engineer &mdash; growing into AI and automation while staying grounded in real business impact.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Jul 2024 &mdash; Present</div>
+        <div class="tl-role">Analytics Engineer &middot; LATAM Finance COE</div>
+        <div class="tl-company">Dell Technologies &mdash; Porto Alegre, Brazil (Remote)</div>
+        <ul class="tl-bullets">
+          <li><strong>AI Agents Portfolio (BR / MX / AR):</strong> Designed and deployed 10+ enterprise AI agents on Glean serving sales and finance teams. Flagship AI BID Analyzer (government RFP analysis with local legislation mapping) runs <strong>500+ executions/month</strong>, saving ~42 hours of manual work monthly. All agents in daily production use.</li>
+          <li><strong>Partner Compensation Dashboard:</strong> Power BI + Power Automate solution identifying CRM orders with unlinked partners &mdash; cut report generation by <strong>3&ndash;4 hours/week</strong> and improved partner traceability.</li>
+          <li><strong>LATAM Finance Reporting:</strong> Multi-page Power BI dashboards centralizing finance backlog and KPIs for regional stakeholders; Salesforce integration via Python ETL pipelines.</li>
+          <li><strong>Automation &amp; RPA:</strong> Power Automate flows and RPA robots for cross-database lookups, document extraction, and spreadsheet processing &mdash; <strong>100+ hours/year saved</strong> per workflow.</li>
+          <li><strong>Cumulative impact:</strong> 1,500+ hours/year saved across automations and reporting; cross-functional work with finance, sales, and analytics teams across Brazil, Mexico, and Argentina.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Jun 2022 &mdash; Jul 2024</div>
+        <div class="tl-role">Sales Operations Analyst &middot; High &amp; Key Accounts</div>
+        <div class="tl-company">Dell Technologies &mdash; Porto Alegre, Brazil</div>
+        <ul class="tl-bullets">
+          <li>Built Power BI dashboards integrated with <strong>Salesforce</strong> and Python ETL, automating reporting and improving pipeline visibility for enterprise accounts.</li>
+          <li>Owned operational reporting for High and Key Account segments &mdash; enterprise clients with <strong>multi-million dollar pipelines</strong> &mdash; supporting prioritization and forecasting decisions.</li>
+          <li>Cross-departmental partnerships to streamline reporting and provide real-time financial insights to stakeholders.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Oct 2021 &mdash; Jun 2022</div>
+        <div class="tl-role">Sales Intern &middot; Key Accounts</div>
+        <div class="tl-company">Dell Technologies &mdash; Porto Alegre, Brazil</div>
+        <ul class="tl-bullets">
+          <li>Supported Key Accounts team with product quotations and proposal submissions.</li>
+          <li>Promoted to full-time Sales Operations Analyst within <strong>9 months</strong>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="section-inner">
+    <div class="section-label">Education &amp; Certifications</div>
+    <h2 class="section-title">Credentials.</h2>
+    <div class="edu-grid fade-up">
+      <div class="edu-card">
+        <div class="edu-card-icon">🎓</div>
+        <h3>Lato Sensu Post-Graduate &mdash; AI &amp; Big Data</h3>
+        <div class="edu-org">ICMC &middot; Universidade de S&atilde;o Paulo (USP)</div>
+        <div class="edu-year">2026 &mdash; 2027</div>
+        <div class="edu-note">In Progress</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-card-icon">📐</div>
+        <h3>B.Sc. Economics</h3>
+        <div class="edu-org">Universidade Federal do Rio Grande do Sul (UFRGS)</div>
+        <div class="edu-year">2020 &mdash; 2024</div>
+        <div class="edu-note">GPA 8.3 / 10</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-card-icon">🌐</div>
+        <h3>IELTS Academic &mdash; 8.0 (C1)</h3>
+        <div class="edu-org">Cambridge Assessment English</div>
+        <div class="edu-year">Bilingual Professional</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-card-icon">📊</div>
+        <h3>Data Scientist Associate</h3>
+        <div class="edu-org">DataCamp</div>
+        <div class="edu-year">2025</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-card-icon">🐍</div>
+        <h3>CS50P &mdash; Programming with Python</h3>
+        <div class="edu-org">HarvardX</div>
+        <div class="edu-year">Harvard Online</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section">
+  <div class="contact-inner fade-up">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Let&rsquo;s work together.</h2>
+    <p>Open to analytics engineering, AI/ML engineering, and data roles &mdash; especially those with international scope or where bilingual skills add value. Reach out directly.</p>
+    <div class="contact-links">
+      <a href="mailto:eschmegel@hotmail.com" class="btn btn-primary">Send Email &rarr;</a>
+      <a href="https://linkedin.com/in/eduardoschmegel" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      <a href="https://github.com/Eduschm" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+      <a href="Eduardo_Schmegel_EN_4.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Download CV</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="mailto:eschmegel@hotmail.com">eschmegel@hotmail.com</a>
+    <a href="https://github.com/Eduschm" target="_blank" rel="noopener">github.com/Eduschm</a>
+  </div>
+  <div class="footer-copy">&copy; 2025 Eduardo Schmegel &middot; Porto Alegre, Brazil</div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Animated counters
+  const counters = [
+    { id: 'c1', target: 1500 },
+    { id: 'c2', target: 10 },
+    { id: 'c3', target: 500 },
+    { id: 'c4', target: 3 },
+  ];
+
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+  function animateCounter(el, target) {
+    const duration = 1800;
+    const start = performance.now();
+    (function step(now) {
+      const p = Math.min((now - start) / duration, 1);
+      el.textContent = Math.round(easeOut(p) * target).toLocaleString();
+      if (p < 1) requestAnimationFrame(step);
+    })(start);
+  }
+
+  let countersStarted = false;
+  const heroObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !countersStarted) {
+      countersStarted = true;
+      counters.forEach(({ id, target }) => {
+        const el = document.getElementById(id);
+        if (el) animateCounter(el, target);
+      });
+    }
+  }, { threshold: 0.3 });
+  const statsEl = document.querySelector('.hero-stats');
+  if (statsEl) heroObserver.observe(statsEl);
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up, .tl-item').forEach(el => revealObserver.observe(el));
+
+  // Skills tabs
+  document.querySelectorAll('.skill-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.skill-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.skills-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      const panel = document.getElementById('panel-' + tab.dataset.panel);
+      if (panel) panel.classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>
