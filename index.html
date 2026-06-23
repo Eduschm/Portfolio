@@ -23,7 +23,6 @@
       --primary-bright: #818cf8;
       --primary-dim: rgba(99,102,241,0.15);
       --secondary: #10b981;
-      --valorant: #ff4655;
       --text: #f1f1f8;
       --text-2: #9999bb;
       --text-3: #55556a;
@@ -354,8 +353,6 @@
     .btn-primary:hover { background: var(--primary-bright); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(99,102,241,0.4), 0 0 0 1px rgba(99,102,241,0.3); }
     .btn-ghost { background: rgba(255,255,255,0.05); color: var(--text-2); border: 1px solid var(--border); }
     .btn-ghost:hover { color: var(--text); background: rgba(255,255,255,0.09); transform: translateY(-2px); }
-    .btn-valorant { background: var(--valorant); color: white; }
-    .btn-valorant:hover { background: #ff6070; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,70,85,0.4); }
 
     /* ── IMPACT BAND ── */
     .impact-section {
@@ -435,13 +432,12 @@
     .about-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
     .about-card p { font-size: 0.875rem; color: var(--text-2); line-height: 1.7; }
 
-    /* ── FEATURED PROJECT ── */
+    /* ── FEATURED PROJECT (FLAGSHIP, WIP) ── */
     .featured-project {
       background: var(--bg-2);
-      border: 1px solid rgba(255,70,85,0.2);
+      border: 1px solid rgba(99,102,241,0.25);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      display: grid; grid-template-columns: 1fr 300px;
       margin-bottom: 2rem;
       transition: border-color 0.4s, box-shadow 0.4s;
       position: relative;
@@ -449,25 +445,26 @@
     .featured-project::before {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(255,70,85,0.04), transparent 60%);
+      background: linear-gradient(135deg, rgba(99,102,241,0.05), transparent 60%);
       pointer-events: none;
     }
-    .featured-project:hover { border-color: rgba(255,70,85,0.5); box-shadow: 0 0 80px rgba(255,70,85,0.1); }
+    .featured-project:hover { border-color: rgba(99,102,241,0.5); box-shadow: 0 0 80px rgba(99,102,241,0.12); }
+    .featured-top { display: grid; grid-template-columns: 1fr 300px; }
     .featured-left { padding: 3rem; display: flex; flex-direction: column; }
     .featured-badge {
       display: inline-flex; align-items: center; gap: 0.4rem;
       padding: 0.3rem 0.8rem;
-      background: rgba(255,70,85,0.12);
-      border: 1px solid rgba(255,70,85,0.3);
+      background: rgba(245,158,11,0.12);
+      border: 1px solid rgba(245,158,11,0.35);
       border-radius: 999px;
-      font-size: 0.72rem; font-weight: 700; color: var(--valorant);
+      font-size: 0.72rem; font-weight: 700; color: #f59e0b;
       letter-spacing: 0.06em; text-transform: uppercase;
       width: fit-content; margin-bottom: 1.5rem;
       animation: featuredPulse 3s ease-in-out infinite;
     }
     @keyframes featuredPulse {
-      0%,100% { box-shadow: 0 0 0 0 rgba(255,70,85,0.3); }
-      50% { box-shadow: 0 0 0 6px rgba(255,70,85,0); }
+      0%,100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.3); }
+      50% { box-shadow: 0 0 0 6px rgba(245,158,11,0); }
     }
     .featured-title { font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.4rem; }
     .featured-type { font-size: 0.82rem; color: var(--text-3); font-family: var(--mono); margin-bottom: 1.5rem; }
@@ -480,7 +477,7 @@
       line-height: 1.55; transition: color 0.2s, padding-left 0.3s;
     }
     .featured-features li:last-child { border-bottom: none; }
-    .featured-features li::before { content: '→'; position: absolute; left: 0; color: var(--valorant); font-weight: 700; transition: transform 0.2s; }
+    .featured-features li::before { content: '→'; position: absolute; left: 0; color: var(--primary); font-weight: 700; transition: transform 0.2s; }
     .featured-features li:hover { color: var(--text); padding-left: 1.8rem; }
     .featured-features li:hover::before { transform: translateX(4px); }
     .featured-features li strong { color: var(--text); }
@@ -491,11 +488,11 @@
       font-size: 0.75rem; font-weight: 600; color: var(--text-2);
       font-family: var(--mono); transition: all 0.2s;
     }
-    .tech-pill:hover { border-color: var(--valorant); color: var(--valorant); }
+    .tech-pill:hover { border-color: var(--primary); color: var(--primary-bright); }
 
     .featured-right {
-      background: linear-gradient(160deg, #0d0a10, #1a0a0e 60%);
-      border-left: 1px solid rgba(255,70,85,0.15);
+      background: linear-gradient(160deg, #0a0a16, #11102a 60%);
+      border-left: 1px solid rgba(99,102,241,0.18);
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       padding: 3rem 2rem; gap: 2rem;
@@ -505,7 +502,7 @@
       content: '';
       position: absolute;
       width: 300px; height: 300px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,70,85,0.15), transparent 70%);
+      background: radial-gradient(circle, rgba(99,102,241,0.18), transparent 70%);
       top: 50%; left: 50%; transform: translate(-50%,-50%);
       animation: rightPulse 4s ease-in-out infinite;
     }
@@ -514,12 +511,62 @@
       50% { transform: translate(-50%,-50%) scale(1.2); opacity: 1; }
     }
     .feat-stat { text-align: center; position: relative; z-index: 1; }
-    .feat-stat-num { font-size: 2.4rem; font-weight: 900; letter-spacing: -0.04em; color: var(--valorant); line-height: 1; margin-bottom: 0.4rem; }
+    .feat-stat-num { font-size: 2.4rem; font-weight: 900; letter-spacing: -0.04em; color: var(--primary-bright); line-height: 1; margin-bottom: 0.4rem; }
     .feat-stat-label { font-size: 0.75rem; color: var(--text-3); font-weight: 500; }
-    .feat-divider { width: 1px; height: 32px; background: rgba(255,70,85,0.2); }
+    .feat-divider { width: 1px; height: 32px; background: rgba(99,102,241,0.25); }
+
+    /* ── PIPELINE / STATUS / SCHEMA INFOGRAPHICS ── */
+    .featured-extra { padding: 0 3rem 3rem; border-top: 1px solid var(--border); position: relative; z-index: 1; }
+    .extra-block { padding-top: 2.5rem; }
+    .extra-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-3); margin-bottom: 1.25rem;
+      font-family: var(--mono);
+    }
+    .pipeline-flow { display: flex; align-items: stretch; gap: 0.4rem; flex-wrap: wrap; }
+    .pipeline-step {
+      flex: 1 1 130px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.1rem 0.8rem;
+      text-align: center; transition: all 0.3s;
+    }
+    .pipeline-step .step-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .pipeline-step .step-title { font-size: 0.8rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+    .pipeline-step .step-sub { font-size: 0.68rem; color: var(--text-3); font-family: var(--mono); }
+    .pipeline-step.done { border-color: rgba(16,185,129,0.35); }
+    .pipeline-step.done:hover { background: rgba(16,185,129,0.08); }
+    .pipeline-step.wip { border-style: dashed; border-color: rgba(245,158,11,0.4); opacity: 0.75; }
+    .pipeline-step.wip:hover { opacity: 1; background: rgba(245,158,11,0.06); }
+    .pipeline-arrow { display: flex; align-items: center; justify-content: center; color: var(--text-3); font-size: 1.1rem; flex: 0 0 auto; padding: 0 0.1rem; }
+
+    .status-board { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .status-col { border-radius: var(--radius); padding: 1.5rem; border: 1px solid var(--border); }
+    .status-col.done { background: rgba(16,185,129,0.05); border-color: rgba(16,185,129,0.25); }
+    .status-col.wip { background: rgba(245,158,11,0.05); border-color: rgba(245,158,11,0.25); }
+    .status-col-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .status-col.done .status-col-title { color: var(--secondary); }
+    .status-col.wip .status-col-title { color: #f59e0b; }
+    .status-col ul { list-style: none; }
+    .status-col li { font-size: 0.86rem; color: var(--text-2); line-height: 1.6; padding: 0.4rem 0 0.4rem 1.4rem; position: relative; }
+    .status-col.done li::before { content: '✓'; position: absolute; left: 0; color: var(--secondary); font-weight: 700; }
+    .status-col.wip li::before { content: '◐'; position: absolute; left: 0; color: #f59e0b; font-weight: 700; }
+
+    .schema-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+    .schema-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; transition: all 0.3s; }
+    .schema-card:hover { border-color: rgba(99,102,241,0.4); background: var(--surface-hover); }
+    .schema-card.gold { border-style: dashed; opacity: 0.7; }
+    .schema-tag { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.15rem 0.55rem; border-radius: 999px; margin-bottom: 0.75rem; font-family: var(--mono); }
+    .schema-card.bronze .schema-tag { background: rgba(180,120,60,0.18); color: #cd8a4f; }
+    .schema-card.silver .schema-tag { background: rgba(180,180,200,0.15); color: #b8bdd1; }
+    .schema-card.gold .schema-tag { background: rgba(245,158,11,0.15); color: #f59e0b; }
+    .schema-table { font-size: 0.82rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; font-family: var(--mono); }
+    .schema-cols { font-size: 0.75rem; color: var(--text-3); line-height: 1.6; font-family: var(--mono); }
+    .schema-note { font-size: 0.72rem; color: var(--text-3); margin-top: 0.85rem; }
+
+    .project-card-img { width: 100%; height: 200px; object-fit: cover; object-position: top; display: block; border-bottom: 1px solid var(--border); }
 
     /* ── PROJECT CARDS ── */
-    .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.25rem; }
     .project-card {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: var(--radius-lg); overflow: hidden;
@@ -706,8 +753,13 @@
       .impact-item { border-right: none; border-bottom: 1px solid var(--border); }
       .impact-item:nth-child(odd) { border-right: 1px solid var(--border); }
       .impact-item:last-child, .impact-item:nth-last-child(2):nth-child(odd) { border-bottom: none; }
-      .featured-project { grid-template-columns: 1fr; }
+      .featured-top { grid-template-columns: 1fr; }
       .featured-right { display: none; }
+      .featured-left, .featured-extra { padding: 2rem; }
+      .pipeline-flow { flex-direction: column; }
+      .pipeline-arrow { transform: rotate(90deg); }
+      .status-board { grid-template-columns: 1fr; }
+      .schema-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
       nav .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
       body { cursor: auto; }
@@ -869,54 +921,164 @@
     <p class="section-desc">Personal projects built with the same production standards I apply at Dell.</p>
 
     <div class="featured-project fade-up">
-      <div class="featured-left">
-        <div class="featured-badge">&#9733; Featured Project</div>
-        <div class="featured-title">Valorant Aim Analyzer</div>
-        <div class="featured-type">// AI Coaching Product &middot; FastAPI + Next.js + Claude</div>
-        <p class="featured-desc">
-          AI-powered Valorant coaching app that turns a Riot ID into a personalized performance report in under 30 seconds.
-          Pulls live ranked match data, computes key metrics (HS%, ADR, win rate, rank delta), and generates
-          number-specific coaching through a dedicated LLM service. Services-first architecture with shared contracts and pytest coverage.
-        </p>
-        <ul class="featured-features">
-          <li>Pulls recent ranked matches &mdash; HS%, ADR, win rate, rank delta, agent &amp; weapon trends</li>
-          <li><strong>LLM coaching layer</strong> via Claude Haiku: number-specific, actionable improvement reports</li>
-          <li>Services-first architecture with shared contracts and pytest test coverage</li>
-          <li>Next.js 14 app router frontend &mdash; fast, clean, production-grade</li>
-          <li><strong>Phase 2:</strong> computer vision pipeline (YOLOv8) for clip analysis and mistake detection</li>
-        </ul>
-        <div class="featured-tech">
-          <span class="tech-pill">FastAPI</span>
-          <span class="tech-pill">Next.js 14</span>
-          <span class="tech-pill">Claude Haiku</span>
-          <span class="tech-pill">Riot API</span>
-          <span class="tech-pill">YOLOv8</span>
-          <span class="tech-pill">pytest</span>
-          <span class="tech-pill">TypeScript</span>
+      <div class="featured-top">
+        <div class="featured-left">
+          <div class="featured-badge">&#128679; Flagship Project &middot; In Progress</div>
+          <div class="featured-title">Databricks Restaurant Data Platform</div>
+          <div class="featured-type">// Data Engineering &middot; Medallion Lakehouse on Azure Databricks + Unity Catalog</div>
+          <p class="featured-desc">
+            End-to-end medallion data platform on Azure Databricks and Unity Catalog, ingesting real-time restaurant
+            order events from Azure Event Hubs and batch dimensional data from Azure SQL Server via Lakehouse
+            Federation. Raw data lands in a governed landing zone, gets transformed through bronze and silver
+            layers with dbt-databricks, and will surface business-ready gold aggregations for dashboards and
+            AI-powered sentiment analysis on customer reviews &mdash; orchestrated end to end via Databricks Workflows.
+          </p>
+          <ul class="featured-features">
+            <li><strong>Hybrid ingestion:</strong> Event Hubs streaming (DLT) for high-frequency orders, Lakehouse Federation batch for slow-changing dimensional data &mdash; latency matched to actual business need, not defaulted to streaming</li>
+            <li><strong>Unity Catalog</strong> governs the full lakehouse: landing/bronze/silver/gold schemas plus a foreign catalog for federated Azure SQL access</li>
+            <li><strong>dbt-databricks</strong> owns bronze &rarr; silver &rarr; gold: built-in testing, lineage, and incremental merge models</li>
+            <li><strong>Orchestration:</strong> single Databricks Workflow &mdash; SQL ingestion task &rarr; dbt task, scheduled daily</li>
+          </ul>
+          <div class="featured-tech">
+            <span class="tech-pill">Azure</span>
+            <span class="tech-pill">Databricks</span>
+            <span class="tech-pill">Unity Catalog</span>
+            <span class="tech-pill">Delta Lake</span>
+            <span class="tech-pill">Azure Event Hubs</span>
+            <span class="tech-pill">Lakehouse Federation</span>
+            <span class="tech-pill">dbt-databricks</span>
+            <span class="tech-pill">Databricks Workflows</span>
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">SQL</span>
+          </div>
+          <div>
+            <a href="https://github.com/Eduschm/databricks-restaurant" target="_blank" rel="noopener" class="btn btn-primary">View Code &rarr;</a>
+          </div>
         </div>
-        <div>
-          <a href="https://github.com/Eduschm/valorant-aim-analyzer" target="_blank" rel="noopener" class="btn btn-valorant">View Code &rarr;</a>
+        <div class="featured-right">
+          <div class="feat-stat">
+            <div class="feat-stat-num">5</div>
+            <div class="feat-stat-label">Source tables via Lakehouse Federation</div>
+          </div>
+          <div class="feat-divider"></div>
+          <div class="feat-stat">
+            <div class="feat-stat-num">Live</div>
+            <div class="feat-stat-label">Event Hubs streaming ingestion</div>
+          </div>
+          <div class="feat-divider"></div>
+          <div class="feat-stat">
+            <div class="feat-stat-num">4</div>
+            <div class="feat-stat-label">Medallion layers (landing&rarr;gold)</div>
+          </div>
         </div>
       </div>
-      <div class="featured-right">
-        <div class="feat-stat">
-          <div class="feat-stat-num">&lt; 30s</div>
-          <div class="feat-stat-label">Full report generation</div>
+
+      <div class="featured-extra">
+        <div class="extra-block">
+          <div class="extra-label">// Ingestion &mdash; Streaming + Batch</div>
+          <div class="pipeline-flow">
+            <div class="pipeline-step done"><div class="step-icon">📡</div><div class="step-title">Azure Event Hubs</div><div class="step-sub">Streaming orders</div></div>
+            <div class="pipeline-arrow">&rarr;</div>
+            <div class="pipeline-step done"><div class="step-icon">⚡</div><div class="step-title">DLT Pipeline</div><div class="step-sub">Spark Structured Streaming</div></div>
+            <div class="pipeline-arrow">&rarr;</div>
+            <div class="pipeline-step done"><div class="step-icon">🗂️</div><div class="step-title">Landing Zone</div><div class="step-sub">Raw Delta</div></div>
+          </div>
+          <div class="pipeline-flow" style="margin-top:0.5rem;">
+            <div class="pipeline-step done"><div class="step-icon">🗄️</div><div class="step-title">Azure SQL Server</div><div class="step-sub">5 source tables</div></div>
+            <div class="pipeline-arrow">&rarr;</div>
+            <div class="pipeline-step done"><div class="step-icon">🔗</div><div class="step-title">Lakehouse Federation</div><div class="step-sub">Unity Catalog foreign catalog</div></div>
+            <div class="pipeline-arrow">&rarr;</div>
+            <div class="pipeline-step done"><div class="step-icon">🗂️</div><div class="step-title">Landing Zone</div><div class="step-sub">Batch CTAS, SQL Warehouse</div></div>
+          </div>
         </div>
-        <div class="feat-divider"></div>
-        <div class="feat-stat">
-          <div class="feat-stat-num">AI</div>
-          <div class="feat-stat-label">LLM-powered coaching</div>
+
+        <div class="extra-block">
+          <div class="extra-label">// Medallion Transformation (dbt-databricks)</div>
+          <div class="pipeline-flow">
+            <div class="pipeline-step done"><div class="step-icon">🟫</div><div class="step-title">Bronze</div><div class="step-sub">historical_orders, reviews</div></div>
+            <div class="pipeline-arrow">&rarr;</div>
+            <div class="pipeline-step wip"><div class="step-icon">⬜</div><div class="step-title">Silver</div><div class="step-sub">dims + facts, in dev</div></div>
+            <div class="pipeline-arrow">&rarr;</div>
+            <div class="pipeline-step wip"><div class="step-icon">🟨</div><div class="step-title">Gold</div><div class="step-sub">marts, planned</div></div>
+            <div class="pipeline-arrow">&rarr;</div>
+            <div class="pipeline-step wip"><div class="step-icon">📊</div><div class="step-title">Dashboards</div><div class="step-sub">planned</div></div>
+            <div class="pipeline-arrow">&rarr;</div>
+            <div class="pipeline-step wip"><div class="step-icon">🤖</div><div class="step-title">AI Sentiment</div><div class="step-sub">ai_analyze_sentiment()</div></div>
+          </div>
         </div>
-        <div class="feat-divider"></div>
-        <div class="feat-stat">
-          <div class="feat-stat-num">CV</div>
-          <div class="feat-stat-label">Computer vision Phase 2</div>
+
+        <div class="extra-block">
+          <div class="extra-label">// Build Status</div>
+          <div class="status-board">
+            <div class="status-col done">
+              <div class="status-col-title">&#9989; Done</div>
+              <ul>
+                <li>Unity Catalog governance &mdash; production catalog, landing/bronze/silver/gold schemas, foreign catalog for Lakehouse Federation</li>
+                <li>Real-time ingestion: Event Hubs &rarr; DLT streaming pipeline &rarr; landing zone</li>
+                <li>Batch ingestion: Lakehouse Federation pulling 5 source tables from Azure SQL Server</li>
+                <li>Bronze layer dbt models (historical_orders, reviews) with sources tested for not_null / unique / relationships</li>
+                <li>Orchestration: single Databricks Workflow, 2-task chain (SQL ingestion &rarr; dbt), scheduled daily</li>
+              </ul>
+            </div>
+            <div class="status-col wip">
+              <div class="status-col-title">&#128679; In Development</div>
+              <ul>
+                <li>Silver dimension &amp; fact models (dim_customer, dim_restaurants, dim_menu_items, fact_orders, fact_order_items, fact_reviews)</li>
+                <li>Gold layer marts (sales summary, customer 360, restaurant reviews)</li>
+                <li>AI-powered sentiment analysis on reviews via Databricks <code>ai_analyze_sentiment()</code></li>
+                <li>Dashboards on top of the gold layer</li>
+                <li>SCD2 snapshots on dim_customer</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="extra-block">
+          <div class="extra-label">// Schema Layers (Unity Catalog &middot; restaurantsworkspace)</div>
+          <div class="schema-grid">
+            <div class="schema-card bronze">
+              <span class="schema-tag">Bronze</span>
+              <div class="schema-table">historical_orders &middot; reviews</div>
+              <div class="schema-cols">Table materialization &middot; full refresh from landing zone</div>
+            </div>
+            <div class="schema-card silver">
+              <span class="schema-tag">Silver &middot; in dev</span>
+              <div class="schema-table">dim_customer, dim_restaurants, dim_menu_items</div>
+              <div class="schema-cols">fact_orders, fact_order_items, fact_reviews &middot; facts incremental (merge on created_at)</div>
+            </div>
+            <div class="schema-card gold">
+              <span class="schema-tag">Gold &middot; planned</span>
+              <div class="schema-table">d_sales_summary, d_customer_360</div>
+              <div class="schema-cols">d_restaurant_reviews &mdash; will power dashboards + AI sentiment analysis</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="projects-grid fade-up">
+      <div class="project-card">
+        <img src="valorant-report.png" alt="Valorant AI coaching report screenshot" class="project-card-img" onerror="this.remove();" />
+        <div class="project-top">
+          <div class="project-type-tag">// FastAPI + Claude API</div>
+          <h3>Valorant Performance Analyzer</h3>
+          <p>API that pulls live ranked match data from the Riot API and sends key performance metrics to Claude for an AI-generated coaching report &mdash; turning raw match stats into specific, actionable feedback.</p>
+        </div>
+        <ul class="project-highlights">
+          <li>Riot API integration &middot; HS%, ADR, win rate, agent trends</li>
+          <li>Claude-powered coaching report generation</li>
+          <li>FastAPI backend with pytest coverage</li>
+        </ul>
+        <div class="project-foot">
+          <div class="project-tech-row">
+            <span class="mini-pill">FastAPI</span>
+            <span class="mini-pill">Claude API</span>
+            <span class="mini-pill">Riot API</span>
+            <span class="mini-pill">pytest</span>
+          </div>
+          <a href="https://github.com/Eduschm/valorant-aim-analyzer" target="_blank" rel="noopener" class="project-link">View Code &rarr;</a>
+        </div>
+      </div>
       <div class="project-card">
         <div class="project-top">
           <div class="project-type-tag">// End-to-End ML Pipeline</div>
@@ -996,6 +1158,7 @@
     <p class="section-desc">Production-proven at Dell, extended through personal projects.</p>
     <div class="skills-tabs">
       <button class="skill-tab active" data-panel="enterprise">Enterprise &amp; Production</button>
+      <button class="skill-tab" data-panel="data-eng">Data Engineering</button>
       <button class="skill-tab" data-panel="ml">ML &amp; Data Science</button>
       <button class="skill-tab" data-panel="dev">Dev &amp; DevOps</button>
     </div>
@@ -1029,6 +1192,31 @@
         <div class="skill-tags">
           <span class="skill-tag key">Python</span><span class="skill-tag key">SQL</span>
           <span class="skill-tag">ETL Pipelines</span><span class="skill-tag">pandas</span><span class="skill-tag">NumPy</span>
+        </div>
+      </div>
+    </div>
+    <div id="panel-data-eng" class="skills-panel">
+      <div class="skill-group">
+        <div class="skill-group-title">// Lakehouse &amp; Governance</div>
+        <div class="skill-tags">
+          <span class="skill-tag key">Databricks</span><span class="skill-tag key">Unity Catalog</span>
+          <span class="skill-tag">Delta Lake</span><span class="skill-tag">Lakehouse Federation</span>
+          <span class="skill-tag">Databricks CLI</span><span class="skill-tag">Cluster Policies</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">// Transformation &amp; Orchestration</div>
+        <div class="skill-tags">
+          <span class="skill-tag key">dbt-databricks</span><span class="skill-tag key">Medallion Architecture</span>
+          <span class="skill-tag">Databricks Workflows</span><span class="skill-tag">Incremental Models</span>
+          <span class="skill-tag">dbt Tests &amp; Lineage</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">// Streaming &amp; Ingestion</div>
+        <div class="skill-tags">
+          <span class="skill-tag key">Azure Event Hubs</span><span class="skill-tag">Spark Structured Streaming (DLT)</span>
+          <span class="skill-tag">Azure SQL Server</span><span class="skill-tag">Streaming vs. Batch Tradeoffs</span>
         </div>
       </div>
     </div>
